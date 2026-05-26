@@ -163,7 +163,7 @@
     <section id="footer" class="footer">
       <div class="text"><p>Iris & Light<br> - <br>© All rights reserved</p></div>
       <a class="instagram-icon" href="https://www.instagram.com/irisandlight.ai/" target="blank">
-        <img src="../icons/instagram-icon.svg" alt="instagram icon">
+        <img src="../icons/facebook-icon.svg" alt="instagram icon">
         <img src="../icons/instagram-icon.svg" alt="instagram icon">
       </a>
       <div class="footer-links">
