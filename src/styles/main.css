@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  font-family: 'Helvetica';
+  scroll-behavior: smooth;
+  background-color: black;
+}
+
+html {
+  scroll-behavior: smooth;
+}
