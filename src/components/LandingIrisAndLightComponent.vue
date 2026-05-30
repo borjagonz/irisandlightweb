@@ -1,6 +1,10 @@
 <template>
  <div class="landing">
     <header class="header">
+  <div
+    class="header-bg"
+    :style="{ backgroundImage: `url(${heroImages[currentHero]})` }"
+  ></div>
         <div class="overlay">
 <nav :class="['navbar', { scrolled: isScrolled }]">
     <img class="logo" src="../assets/IrisAndLight-logo-white.png" alt="">
@@ -12,12 +16,12 @@
     </button>
 
     <div :class="['navlinks', { active: menuOpen }]">
-        <a class="navlink" href="">Prices</a>
-        <a class="navlink" href="">Samples</a>
-        <a class="navlink" href="">Contact Us</a>
-        <a class="navlink" href="#location">Find Us</a>
-        <a class="booklink" href="#booking">Book a Session</a>
-        <div>
+<a class="navlink" @click.prevent="scrollToSection('prices')">Prices</a>
+<a class="navlink" @click.prevent="scrollToSection('samples')">Samples</a>
+<a class="navlink" @click.prevent="scrollToSection('contact')">Contact Us</a>
+<a class="navlink" @click.prevent="scrollToSection('location')">Find Us</a>
+<a class="booklink" @click.prevent="scrollToSection('booking')">Book a Session</a>        
+    <div>
             <a class="langbtn" href="">
                 <img src="" alt="">
             </a>
@@ -28,8 +32,8 @@
             <h1>YOUR EYE. <br>TURNED INTO ART.</h1>
             <H3>TURN YOUR IRIS INTO STUNING <br>PERSONALISED ARTWORK</H3>
             <div class="herobtns">
-                <a class="herobtn" href="#samples">See Samples</a>
-                <a class="herobtn" href="#booking">Book a Session</a>
+                <a class="herobtn" @click.prevent="scrollToSection('samples')">See Samples</a>
+                <a class="herobtn" @click.prevent="scrollToSection('booking')">Book a Session</a>
             </div>
         </div>
         </div>
@@ -154,7 +158,7 @@
       </iframe>
 <a 
   class="location-btn"
-  href="https://maps.google.com/?q=Eye+Origin+Porto"
+  href="https://maps.app.goo.gl/rkc4RKQp4wyE7GW96"
   target="_blank"
 >
   See location
@@ -162,10 +166,15 @@
     </section>
     <section id="footer" class="footer">
       <div class="text"><p>Iris & Light<br> - <br>© All rights reserved</p></div>
-      <a class="instagram-icon" href="https://www.instagram.com/irisandlight.ai/" target="blank">
-        <img src="../icons/facebook-icon.svg" alt="instagram icon">
+      <div class="rrss-icons">
+              <a class="instagram-icon" href="https://www.instagram.com/irisandlight.ai/" target="blank">
         <img src="../icons/instagram-icon.svg" alt="instagram icon">
       </a>
+      <a class="instagram-icon" href="https://www.facebook.com/people/Iris-Light/61587880435565/">
+                <img src="../icons/facebook-icon.svg" alt="instagram icon">
+      </a>
+      </div>
+
       <div class="footer-links">
         <a class="footer-link" href="">Legal Notice & Privacy Policy</a>
         <p>-</p>
@@ -181,6 +190,14 @@ import foto2 from "../assets/foto2.jpg"
 import foto3 from "../assets/foto3.jpg"
 import foto4 from "../assets/foto4.jpg"
 
+import hero1 from "../assets/hero-irisandlight1.jpg"
+import hero2 from "../assets/hero-irisandlight2.jpg"
+import hero3 from "../assets/hero-irisandlight3.jpg"
+import hero4 from "../assets/hero-irisandlight4.jpg"
+import hero5 from "../assets/hero-irisandlight5.jpg"
+import hero6 from "../assets/hero-irisandlight6.jpg"
+
+
 export default {
   data() {
     return {
@@ -194,6 +211,19 @@ export default {
 
       direction: "next",
 
+      currentHero: 0,
+
+      heroImages: [
+        hero1,
+        hero2,
+        hero3,
+        hero4,
+        hero5,
+        hero6
+      ],
+
+      heroInterval: null,
+
       images: [
         foto1,
         foto2,
@@ -204,6 +234,24 @@ export default {
   },
 
   methods: {
+      scrollToSection(id) {
+    const section = document.getElementById(id)
+
+    if (!section) return
+
+    const y =
+      section.offsetTop -
+      (window.innerHeight / 2) +
+      (section.offsetHeight / 2)
+
+    window.scrollTo({
+      top: y,
+      behavior: "smooth"
+    })
+
+    this.menuOpen = false
+  },
+
     handleScroll() {
       this.isScrolled = window.scrollY > 0
     },
@@ -227,6 +275,11 @@ export default {
         this.images.length
     },
 
+    changeHeroImage() {
+      this.currentHero =
+        (this.currentHero + 1) % this.heroImages.length
+    },
+
     sendEmail() {
       const subject = `Nou missatge de ${this.name}`
 
@@ -245,10 +298,16 @@ ${this.message}`
 
   mounted() {
     window.addEventListener("scroll", this.handleScroll)
+
+    this.heroInterval = setInterval(() => {
+      this.changeHeroImage()
+    }, 12000)
   },
 
   beforeUnmount() {
     window.removeEventListener("scroll", this.handleScroll)
+
+    clearInterval(this.heroInterval)
   }
 }
 </script>
@@ -261,12 +320,11 @@ ${this.message}`
   overflow: hidden;
 }
 
-.header::before {
-  content: "";
+
+.header-bg {
   position: absolute;
   inset: 0;
 
-  background-image: url(../assets/hero-eyeoriginporto.jpg);
   background-size: cover;
   background-position: center;
 
@@ -275,7 +333,26 @@ ${this.message}`
   transform: scale(1);
   will-change: transform;
 
-  z-index: -1;
+  z-index: 0;
+
+  transition: background-image 1s ease-in-out;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+
+  pointer-events: none;
+  z-index: 0;
 }
 
 @keyframes heroZoom {
@@ -289,6 +366,8 @@ ${this.message}`
 }
 
 .overlay {
+  position: relative;
+  z-index: 1;
   height: 100vh;
 }
 
@@ -299,7 +378,7 @@ ${this.message}`
     position: fixed;
     width: 100%;
     transition: all 0.5s ease;
-    z-index: 1000;  
+    z-index: 99999;
     padding: 50px;
     margin: 0;
     box-sizing: border-box;
@@ -309,6 +388,7 @@ ${this.message}`
   padding: 25px 50px;
   backdrop-filter: blur(20px);
   background-color: rgba(0, 0, 0, 0.4);
+  z-index: 99999;
 }
 
 .logo {
@@ -373,7 +453,7 @@ ${this.message}`
 
 .hero h1 {
     color: white;
-    font-size: 95px;
+    font-size: 100px;
     text-align: center;
     font-weight: 900;
     margin-bottom: 15px;
@@ -398,13 +478,12 @@ ${this.message}`
 .herobtn {
   text-decoration: none;
     color: white;
-    border: 2px solid rgb(50, 50, 50);
+    border: 1px solid rgb(80, 80, 80);
     padding: 15px 40px;
     border-radius: 100px;
     font-size: 20px;
     transition: all 0.5s ease;
   width: fit-content;
-
 }
 
 .herobtn:hover{
@@ -443,7 +522,7 @@ ${this.message}`
 
   text-align: center;
   padding: 50px;
-  border: 2px solid rgb(50, 50, 50);
+    border: 1px solid rgb(80, 80, 80);
   border-radius: 50px;
   width: 30%;
 
@@ -481,7 +560,7 @@ ${this.message}`
 
   transition: opacity 0.5s ease;
 
-  z-index: 1;
+  z-index: 0;
 }
 
 .card:hover::before {
@@ -506,8 +585,9 @@ ${this.message}`
 }
 
 .card:hover {
-  scale: 105%;
-  width: 40%;
+  transform: scale(1.05);
+  z-index: 0;
+    width: 40%;
 }
 
 .card h2 {
@@ -521,7 +601,7 @@ ${this.message}`
     font-size: 28px;
     text-align: center;
   position: relative;
-  z-index: 2;
+  z-index: 0;
 }
 
 .card h3 {
@@ -529,12 +609,12 @@ ${this.message}`
     margin-top: 30px;
     font-size: 28px;
   position: relative;
-  z-index: 2;
+  z-index: 0;
 }
 
 .card p {
     position: relative;
-  z-index: 2;
+  z-index: 0;
   font-size: 16px
 
 }
@@ -591,7 +671,7 @@ ${this.message}`
   left: 50%;
   top: 50%;
 
-  z-index: 5;
+  z-index: 0;
 
   transform: translate(-50%, -50%);
   backface-visibility: hidden;
@@ -605,6 +685,7 @@ ${this.message}`
   transition: all 0.9s ease;
   filter: blur(1px);
   border: 1px solid rgba(255,255,255, 0.5);
+  z-index: -1;
 }
 
 .left-image {
@@ -628,7 +709,7 @@ ${this.message}`
   font-size: 24px;
   cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 20;
+  z-index: 1;
 }
 
 .carousel-btn:hover {
@@ -808,7 +889,7 @@ input[type="time"] {
 
 .location {
   margin: 50px;
-  border: 2px solid rgb(50, 50, 50);
+  border: 1px solid rgb(80, 80, 80);
   border-radius: 50px;
   padding: 50px;
   justify-content: center;
@@ -866,7 +947,7 @@ input[type="time"] {
   margin: 0;
 }
 
-.instagram-icon {
+.rrss-icons {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -928,6 +1009,14 @@ input[type="time"] {
 
 .hamburger span:nth-child(3).open {
   transform: translateY(-8px) rotate(-45deg);
+}
+
+.navlink,
+.booklink,
+.herobtn,
+.location-btn,
+.footer-link {
+  cursor: pointer;
 }
 
 /* RESPONSIVE */
@@ -1020,7 +1109,7 @@ input[type="time"] {
     width: calc(50% - 15px);
     max-width: calc(50% - 15px);
     box-sizing: border-box;
-    min-height: 410px;
+    min-height: 360px;
   }
 
    .card:hover {
@@ -1050,8 +1139,27 @@ input[type="time"] {
 
 @media (max-width: 769px) {
 
+  .header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.6) 20%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.6) 80%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+
+  pointer-events: none;
+  z-index: 0;
+}
+
   .hero h1{
-    font-size: 60px;
+    font-size: 68px;
     margin: 100px 50px 10px;
   }
 
@@ -1067,8 +1175,7 @@ input[type="time"] {
   .card {
     width: 100%;
     max-width: 100%;
-    min-height: 410px;
-
+    min-height: 360px;
   }
 
      .card:hover {
@@ -1117,10 +1224,11 @@ input[type="time"] {
   align-items: center;
   justify-content: center;
   justify-items: center;
+  gap: 0px;
 }
 
 .text{
-  margin-bottom: 200px;
+  margin-bottom: 120px;
 }
 
 .instagram-icon {
@@ -1140,17 +1248,18 @@ input[type="time"] {
   }
 
   .hero h1 {
-    font-size: 32px;
-    margin: 50px 30px 10px;
+    font-size: 52px;
+    margin: 120px 30px 10px;
   }
 
   .hero h3 {
-    font-size: 20px;
+    font-size: 24px;
     margin: 0px 30px 50px;
   }
   .herobtns {
     flex-direction: column;
-    align-items: center; /* clave */
+    align-items: center;
+    gap: 20px;
   }
 
   .herobtn {
@@ -1225,5 +1334,62 @@ input[type="time"] {
     font-size: 32px;
   }
 
+}
+
+@media (max-width: 480px) {
+  
+    .navbar {
+    padding: 20px
+  }
+
+    .navbar.scrolled {
+    padding: 15px 20px;
+  }
+
+    .hero h1 {
+    font-size: 32px;
+    margin: 160px 30px 10px;
+  }
+
+  .hero h3 {
+    font-size: 16px;
+  }
+
+  .herobtns {
+    gap: 10px;
+  }
+
+  .herobtn {
+    font-size: 14px;
+  }
+
+    .process {
+    padding: 80px 20px 0px;
+  }
+
+    .card {
+    width: 100%;
+    max-width: 100%;
+    min-height: 320px;
+  }
+
+    .samples h1 {
+    font-size: 32px;
+    margin: 20px 30px;
+  }
+
+  .samples p{
+    margin: 20px 30px;
+  }
+
+    .booking {
+    padding: 50px 20px;
+    margin: 80px 20px 0px;
+  }
+
+    .location {
+    padding: 50px 20px;
+    margin: 80px 20px 0px;
+  }
 }
 </style>
