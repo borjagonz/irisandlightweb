@@ -453,7 +453,7 @@ ${this.message}`
 
 .hero h1 {
     color: white;
-    font-size: 100px;
+    font-size: 95px;
     text-align: center;
     font-weight: 900;
     margin-bottom: 15px;
