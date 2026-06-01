@@ -1,10 +1,16 @@
 <template>
  <div class="landing">
     <header class="header">
+<div
+  class="header-bg"
+  :style="{ backgroundImage: `url(${heroImages[currentHero]})` }"
+>
   <div
-    class="header-bg"
-    :style="{ backgroundImage: `url(${heroImages[currentHero]})` }"
+    class="header-bg-next"
+    :class="{ active: fadeHero }"
+    :style="{ backgroundImage: `url(${heroImages[nextHero]})` }"
   ></div>
+</div>
         <div class="overlay">
 <nav :class="['navbar', { scrolled: isScrolled }]">
     <img class="logo" src="../assets/IrisAndLight-logo-white.png" alt="">
@@ -197,21 +203,21 @@ import hero4 from "../assets/hero-irisandlight4.jpg"
 import hero5 from "../assets/hero-irisandlight5.jpg"
 import hero6 from "../assets/hero-irisandlight6.jpg"
 
-
 export default {
   data() {
     return {
       whatsappLink: "https://wa.me/34699699551",
 
       isScrolled: false,
-
       menuOpen: false,
 
       currentSlide: 0,
-
       direction: "next",
 
+      // HERO
       currentHero: 0,
+      nextHero: 1,
+      fadeHero: false,
 
       heroImages: [
         hero1,
@@ -234,23 +240,23 @@ export default {
   },
 
   methods: {
-      scrollToSection(id) {
-    const section = document.getElementById(id)
+    scrollToSection(id) {
+      const section = document.getElementById(id)
 
-    if (!section) return
+      if (!section) return
 
-    const y =
-      section.offsetTop -
-      (window.innerHeight / 2) +
-      (section.offsetHeight / 2)
+      const y =
+        section.offsetTop -
+        (window.innerHeight / 2) +
+        (section.offsetHeight / 2)
 
-    window.scrollTo({
-      top: y,
-      behavior: "smooth"
-    })
+      window.scrollTo({
+        top: y,
+        behavior: "smooth"
+      })
 
-    this.menuOpen = false
-  },
+      this.menuOpen = false
+    },
 
     handleScroll() {
       this.isScrolled = window.scrollY > 0
@@ -276,8 +282,15 @@ export default {
     },
 
     changeHeroImage() {
-      this.currentHero =
+      this.nextHero =
         (this.currentHero + 1) % this.heroImages.length
+
+      this.fadeHero = true
+
+      setTimeout(() => {
+        this.currentHero = this.nextHero
+        this.fadeHero = false
+      }, 1000)
     },
 
     sendEmail() {
@@ -299,6 +312,12 @@ ${this.message}`
   mounted() {
     window.addEventListener("scroll", this.handleScroll)
 
+    // Precargar imágenes del hero
+    this.heroImages.forEach(src => {
+      const img = new Image()
+      img.src = src
+    })
+
     this.heroInterval = setInterval(() => {
       this.changeHeroImage()
     }, 12000)
@@ -307,7 +326,9 @@ ${this.message}`
   beforeUnmount() {
     window.removeEventListener("scroll", this.handleScroll)
 
-    clearInterval(this.heroInterval)
+    if (this.heroInterval) {
+      clearInterval(this.heroInterval)
+    }
   }
 }
 </script>
@@ -329,13 +350,22 @@ ${this.message}`
   background-position: center;
 
   animation: heroZoom 12s ease-in-out infinite alternate;
+}
 
-  transform: scale(1);
-  will-change: transform;
+.header-bg-next {
+  position: absolute;
+  inset: 0;
 
-  z-index: 0;
+  background-size: cover;
+  background-position: center;
 
-  transition: background-image 1s ease-in-out;
+  opacity: 0;
+
+  transition: opacity 1s ease;
+}
+
+.header-bg-next.active {
+  opacity: 1;
 }
 
 .header::after {
