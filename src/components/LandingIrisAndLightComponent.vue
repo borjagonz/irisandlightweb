@@ -22,9 +22,13 @@
     </button>
 
     <div :class="['navlinks', { active: menuOpen }]">
-<a class="navlink" @click.prevent="scrollToSection('prices')">Prices</a>
 <a class="navlink" @click.prevent="scrollToSection('samples')">Samples</a>
-<a class="navlink" @click.prevent="scrollToSection('contact')">Contact Us</a>
+<a
+  class="navlink"
+  @click.prevent="scrollToTopSection('prices')"
+>
+  Prices
+</a><a class="navlink" @click.prevent="scrollToSection('contact')">Contact Us</a>
 <a class="navlink" @click.prevent="scrollToSection('location')">Find Us</a>
 <a class="booklink" @click.prevent="scrollToSection('booking')">Book a Session</a>        
     <div>
@@ -110,6 +114,61 @@
     <h3>PERFECT FOR YOU, PERFECT AS A GIFT.</h3>
 </div>
     </section>
+
+<section id="prices" class="prices">
+  <h1>OUR PRICES</h1>
+  <p>
+    Discover our range of sizes, designs and prices, tailored to you.
+  </p>
+
+  <div
+    v-for="(category, index) in priceCategories"
+    :key="index"
+    class="price-row"
+  >
+    <h2>{{ category.title }}</h2>
+
+    <div class="price-carousel">
+
+      <button
+        class="price-arrow-left"
+        @click="prevPrice(category)"
+      >
+        <img src="../icons/left-arrow-white.svg" alt="">
+      </button>
+
+      <div class="price-cards">
+
+        <div
+          v-for="(item, i) in category.items.slice(
+  category.visible,
+  category.visible + cardsToShow
+)"
+          :key="i"
+          class="price-card"
+        >
+          <img :src="item.image" :alt="item.title">
+
+          <h3>{{ item.title }}</h3>
+
+          <p class="price-value">
+            {{ item.price }}
+          </p>
+        </div>
+
+      </div>
+
+      <button
+        class="price-arrow-right"
+        @click="nextPrice(category)"
+      >
+        <img src="../icons/right-arrow-white.svg" alt="">
+      </button>
+
+    </div>
+  </div>
+</section>
+
     <section id="booking" class="booking">
       <h1>BOOK YOUR SESSION</h1>
       <p>Come and visit us to feel the iris experience. Choose the day and time that you wish and we'll do a photoshoot of your iris.</p>
@@ -147,6 +206,54 @@
   Confirm Booking
 </button>
     </section>
+
+<section id="contact" class="contact">
+  <h1>CONTACT US</h1>
+
+  <p>
+    Have a question about our artwork, pricing or bookings?
+    We'd love to hear from you.
+  </p>
+
+<form class="contact-form" @submit.prevent="sendEmail">
+
+  <div class="contact-column">
+    <input
+      type="text"
+      v-model="name"
+      placeholder="Your Name"
+      required
+    >
+
+    <input
+      type="email"
+      v-model="email"
+      placeholder="Email Address"
+      required
+    >
+
+    <input
+      type="tel"
+      v-model="phone"
+      placeholder="Phone Number"
+    >
+  </div>
+
+  <div class="contact-column">
+    <textarea
+      v-model="message"
+      placeholder="Your Message"
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit" class="contact-btn">
+    Send Message
+  </button>
+
+</form>
+</section>
+
     <section id="location" class="location">
       <h1>FIND OUR MOBILE STUDIO</h1>
       <p>📍 Westfield Bondi Junction, Oxford Street, Bondi Junction NSW, Australia <br>
@@ -176,7 +283,7 @@
               <a class="instagram-icon" href="https://www.instagram.com/irisandlight.ai/" target="blank">
         <img src="../icons/instagram-icon.svg" alt="instagram icon">
       </a>
-      <a class="instagram-icon" href="https://www.facebook.com/people/Iris-Light/61587880435565/">
+      <a class="instagram-icon" href="https://www.facebook.com/people/Iris-Light/61587880435565/" target="blank">
                 <img src="../icons/facebook-icon.svg" alt="instagram icon">
       </a>
       </div>
@@ -206,6 +313,11 @@ import hero6 from "../assets/hero-irisandlight6.jpg"
 export default {
   data() {
     return {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+
       whatsappLink: "https://wa.me/34699699551",
 
       isScrolled: false,
@@ -235,11 +347,112 @@ export default {
         foto2,
         foto3,
         foto4
+      ],
+
+      cardsToShow: 3,
+
+      priceCategories: [
+        {
+          title: "Printing on photographic paper",
+          visible: 0,
+          items: Array.from({ length: 12 }, (_, i) => ({
+            image: [foto1, foto2, foto3, foto4][i % 4],
+            title: `Model ${i + 1}`,
+            price: `$${79 + (i * 10)}`
+          }))
+        },
+
+        {
+          title: "Direct printing on Dibond Aluminum",
+          visible: 0,
+          items: Array.from({ length: 13 }, (_, i) => ({
+            image: [foto1, foto2, foto3, foto4][i % 4],
+            title: `Model ${i + 1}`,
+            price: `$${99 + (i * 10)}`
+          }))
+        },
+
+        {
+          title: "Acrylic Frame",
+          visible: 0,
+          items: Array.from({ length: 13 }, (_, i) => ({
+            image: [foto1, foto2, foto3, foto4][i % 4],
+            title: `Model ${i + 1}`,
+            price: `$${119 + (i * 10)}`
+          }))
+        },
+
+        {
+          title: "Premium Acrylic Frame",
+          visible: 0,
+          items: Array.from({ length: 13 }, (_, i) => ({
+            image: [foto1, foto2, foto3, foto4][i % 4],
+            title: `Model ${i + 1}`,
+            price: `$${149 + (i * 10)}`
+          }))
+        },
+
+        {
+          title: "Acrylic Block",
+          visible: 0,
+          items: [
+            {
+              image: foto1,
+              title: "Model 1",
+              price: "$199"
+            },
+            {
+              image: foto2,
+              title: "Model 2",
+              price: "$249"
+            }
+          ]
+        },
+
+        {
+          title: "Round Acrylic Frame",
+          visible: 0,
+          items: [
+            {
+              image: foto3,
+              title: "Model 1",
+              price: "$199"
+            },
+            {
+              image: foto4,
+              title: "Model 2",
+              price: "$249"
+            }
+          ]
+        }
       ]
     }
   },
 
   methods: {
+    updateCardsToShow() {
+      if (window.innerWidth <= 769) {
+        this.cardsToShow = 1
+      } else if (window.innerWidth <= 1200) {
+        this.cardsToShow = 2
+      } else {
+        this.cardsToShow = 3
+      }
+    },
+
+    scrollToTopSection(id) {
+      const section = document.getElementById(id)
+
+      if (!section) return
+
+      window.scrollTo({
+        top: section.offsetTop - 100,
+        behavior: "smooth"
+      })
+
+      this.menuOpen = false
+    },
+
     scrollToSection(id) {
       const section = document.getElementById(id)
 
@@ -293,15 +506,32 @@ export default {
       }, 1000)
     },
 
+    nextPrice(category) {
+      if (
+        category.visible <
+        category.items.length - this.cardsToShow
+      ) {
+        category.visible++
+      }
+    },
+
+    prevPrice(category) {
+      if (category.visible > 0) {
+        category.visible--
+      }
+    },
+
     sendEmail() {
-      const subject = `Nou missatge de ${this.name}`
+      const subject = `New message from ${this.name}`
 
       const body =
-`Nom: ${this.name}
+`Name: ${this.name}
 
 Email: ${this.email}
 
-Missatge:
+Phone: ${this.phone}
+
+Message:
 ${this.message}`
 
       window.location.href =
@@ -312,7 +542,6 @@ ${this.message}`
   mounted() {
     window.addEventListener("scroll", this.handleScroll)
 
-    // Precargar imágenes del hero
     this.heroImages.forEach(src => {
       const img = new Image()
       img.src = src
@@ -321,14 +550,29 @@ ${this.message}`
     this.heroInterval = setInterval(() => {
       this.changeHeroImage()
     }, 12000)
+
+    this.updateCardsToShow()
+
+    window.addEventListener(
+      "resize",
+      this.updateCardsToShow
+    )
   },
 
   beforeUnmount() {
-    window.removeEventListener("scroll", this.handleScroll)
+    window.removeEventListener(
+      "scroll",
+      this.handleScroll
+    )
 
     if (this.heroInterval) {
       clearInterval(this.heroInterval)
     }
+
+    window.removeEventListener(
+      "resize",
+      this.updateCardsToShow
+    )
   }
 }
 </script>
@@ -542,7 +786,7 @@ ${this.message}`
 .cards {
     display:flex;
     width: 100%;
-    gap: 50px;
+    gap: 30px;
     margin-top: 75px;
 }
 
@@ -590,7 +834,7 @@ ${this.message}`
 
   transition: opacity 0.5s ease;
 
-  z-index: 0;
+  z-index: -1;
 }
 
 .card:hover::before {
@@ -604,20 +848,22 @@ ${this.message}`
 
 .card-1::before {
   background-image: url('../assets/card1.jpg');
+  z-index: -1;
 }
 
 .card-2::before {
   background-image: url('../assets/card2.jpg');
+  z-index: -1;
 }
 
 .card-3::before {
   background-image: url('../assets/card3.jpg');
+  z-index: -1;
 }
 
 .card:hover {
-  transform: scale(1.05);
   z-index: 0;
-    width: 40%;
+    width: 45%;
 }
 
 .card h2 {
@@ -664,6 +910,7 @@ ${this.message}`
     color: rgb(196, 196, 196);
     text-align: center;
   font-size: 20px;
+  margin: 20px 50px;
 
 }
 
@@ -680,19 +927,20 @@ ${this.message}`
 .carousel-track {
   position: relative;
   width: 100%;
-  height: 750px;
+  height: 700px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   overflow: hidden;
+  z-index: -2;
+
 }
 
 .carousel-image {
-  height: 750px;
+  height: 100%;
   width: auto;
-  max-width: 70vw;
 
   object-fit: contain;
 
@@ -709,21 +957,24 @@ ${this.message}`
 
 .side-image {
   width: 50%;
-  height: 750px;
+  height: 700px;
   object-fit: cover;
   opacity: 0.15;
   transition: all 0.9s ease;
   filter: blur(1px);
   border: 1px solid rgba(255,255,255, 0.5);
-  z-index: -1;
+  z-index: -2;
 }
 
 .left-image {
   left: auto;
+  z-index: -2;
 }
 
 .right-image {
   right: auto;
+  z-index: -2;
+
 }
 
 .carousel-btn {
@@ -739,7 +990,7 @@ ${this.message}`
   font-size: 24px;
   cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 1;
+  z-index: 0;
 }
 
 .carousel-btn:hover {
@@ -823,6 +1074,117 @@ ${this.message}`
 .heart {
     height: 100px;
 }
+
+.prices {
+  padding: 100px 50px 10px 50px;
+}
+
+.prices h1 {
+  color: white;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 900;
+  margin-top: 0;
+}
+
+.prices > p {
+  color: rgb(196,196,196);
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 75px;
+}
+
+.price-row {
+  margin-bottom: 100px;
+}
+
+.price-row h2 {
+  color: white;
+  margin-bottom: 50px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.price-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.price-cards {
+    display:flex;
+    width: 100%;
+    gap: 30px;
+    justify-content: center;
+}
+
+.price-card {
+  border: 1px solid #333;
+  border-radius: 50px;
+  overflow: hidden;
+  transition: 0.3s;
+  width: 31%;
+}
+
+.price-card:hover {
+  scale: 1.05;
+}
+
+.price-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.price-card h3 {
+  color: white;
+  padding: 20px 30px 0px;
+  margin: 0;
+}
+
+.price-value {
+  color: white !important;
+  font-size: 22px !important;
+  font-weight: 700;
+  padding: 0 30px 10px;
+  text-align: left !important;
+}
+
+.price-arrow-left {
+  width: 60px;
+  border-radius: 100px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 0;
+}
+
+.price-arrow-left:hover {
+  scale: 1.1;
+}
+
+.price-arrow-right {
+  width: 60px;
+  border-radius: 100px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 0;
+}
+
+.price-arrow-right:hover {
+  scale: 1.1;
+}
+
 
 .booking {
   background-color: white;
@@ -917,6 +1279,107 @@ input[type="time"] {
   scale: 105%;
 }
 
+.contact {
+  margin: 50px;
+  padding: 50px;
+  background-color: rgba(20, 20, 20, 1);
+  border-radius: 50px;
+}
+
+.contact h1 {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 900;
+  color: white;
+}
+
+.contact p {
+  color: white;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 75px auto;
+}
+
+.contact-form {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.contact-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 20px 30px;
+
+  border-radius: 35px;
+  border: 1px solid rgb(80, 80, 80);
+
+  background: transparent;
+  color: white;
+
+  font-family: Helvetica;
+  font-size: 16px;
+
+  box-sizing: border-box;
+
+  transition: all 0.3s ease;
+}
+
+.contact-form textarea {
+  min-height: 220px;
+  height: 100%;
+  resize: vertical; 
+  border-radius: 30px;
+}
+
+.contact-btn {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: white;
+}
+
+.contact-btn {
+  width: fit-content;
+  margin: 20px auto 0 auto;
+  margin-bottom: 50px;
+
+  border: 1px solid rgb(80, 80, 80);
+  background: transparent;
+  color: white;
+
+  padding: 15px 35px;
+  border-radius: 100px;
+
+  font-size: 20px;
+  cursor: pointer;
+
+  transition: all 0.4s ease;
+}
+
+.contact-btn:hover {
+  background: white;
+  color: black;
+}
+
 .location {
   margin: 50px;
   border: 1px solid rgb(80, 80, 80);
@@ -945,7 +1408,7 @@ input[type="time"] {
 
   text-decoration: none;
 
-  border: 2px solid rgb(50, 50, 50);
+  border: 1px solid rgb(80, 80, 80);
   color: white;
   padding: 15px 30px;
   background-color: transparent;
@@ -1054,11 +1517,11 @@ input[type="time"] {
 @media (max-width: 1200px) {
 
   .navbar {
-    padding: 30px;
+    padding: 30px 50px;
   }
 
   .navbar.scrolled {
-    padding: 20px 30px;
+    padding: 20px 50px;
   }
 
   .hamburger {
@@ -1119,6 +1582,9 @@ input[type="time"] {
   padding: 0;
 }
 
+    .price-card {
+    width: 48%;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -1160,11 +1626,13 @@ input[type="time"] {
     max-width: 400px;
     margin: 0 auto;
     margin-top: 75px;
+    margin-bottom: 25px;
   }
 
   .gift h3{
     margin: 0;
   }
+
 }
 
 @media (max-width: 769px) {
@@ -1177,11 +1645,9 @@ input[type="time"] {
   background:
     linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.9) 0%,
-      rgba(0, 0, 0, 0.6) 20%,
+      rgba(0, 0, 0, 0.7) 0%,
       rgba(0, 0, 0, 0) 50%,
-      rgba(0, 0, 0, 0.6) 80%,
-      rgba(0, 0, 0, 0.9) 100%
+      rgba(0, 0, 0, 0.7) 100%
     );
 
   pointer-events: none;
@@ -1238,6 +1704,14 @@ input[type="time"] {
   margin-right: 50px;
 }
 
+.price-card {
+  width: 100%;
+}
+
+.price-row {
+  margin-bottom: 75px;
+}
+
 .form{
   display: flex;
   flex-direction: column;
@@ -1245,6 +1719,11 @@ input[type="time"] {
 
 .form input {
   width: 100%;
+}
+
+.contact-form{
+  display: flex;
+  flex-direction: column;
 }
 
 .footer {
@@ -1272,6 +1751,14 @@ input[type="time"] {
 }
 
 @media (max-width: 600px) {
+
+  .navbar {
+    padding: 30px 30px;
+  }
+
+  .navbar.scrolled {
+    padding: 20px 30px;
+  }
 
   .logo{
     height: 45px;
@@ -1315,6 +1802,24 @@ input[type="time"] {
     margin: 20px 30px;
   }
 
+  .carousel-btn.left {
+    width: 50px;
+    height: 50px;
+  }
+
+  .carousel-btn.right {
+    width: 50px;
+    height: 50px;
+  }
+
+  .prices h1 {
+    font-size: 32px;
+  }
+
+  .prices h2{
+    font-size: 24px;
+  }
+
   .samples p{
     margin: 20px 30px;
   }
@@ -1338,6 +1843,15 @@ input[type="time"] {
 
   }
 
+  .prices {
+    padding: 80px 30px 0px;
+}
+
+  .price-carousel{
+    gap: 20px;
+  }
+
+
   .booking {
     padding: 50px 30px;
     margin: 80px 30px 0px;
@@ -1355,9 +1869,32 @@ input[type="time"] {
     margin-bottom: 30px;
   }
 
+  .contact {
+    padding: 50px 30px;
+    margin: 60px 30px 0px;
+}
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-column {
+    width: 100%;
+  }
+
+  .contact-btn {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0 auto;
+  }
+
+
+
   .location {
     padding: 50px 30px;
-    margin: 80px 30px 0px;
+    margin: 60px 30px 0px;
   }
 
   .location h1{
@@ -1403,23 +1940,73 @@ input[type="time"] {
     min-height: 320px;
   }
 
+  .process h1 {
+    font-size: 26px;
+  }
+
+  .process p{
+    font-size: 16px;
+  }
+
     .samples h1 {
-    font-size: 32px;
+    font-size: 28px;
     margin: 20px 30px;
   }
 
   .samples p{
+    font-size: 16px;
     margin: 20px 30px;
   }
+    .prices {
+    padding: 80px 20px 0px;
+}
+
+  .prices h2{
+    margin: 20px 20px 50px ;
+  }
+
+  .prices p{
+        font-size: 16px;
+  }
+
+  .price-carousel {
+    gap: 15px;
+  }
+
+  .price-row {
+  margin-bottom: 50px;
+}
+
+    .contact {
+    padding: 50px 20px;
+    margin: 40px 20px 0px;
+}
+
 
     .booking {
     padding: 50px 20px;
     margin: 80px 20px 0px;
   }
 
+  .booking p{
+    font-size: 16px;
+  }
+
+  .confirm-btn{
+    font-size: 16px;
+  }
+
+  .contact-btn{
+    font-size: 16px;
+  }
+
+  .location-btn{
+    font-size: 16px;
+  }
+
     .location {
     padding: 50px 20px;
-    margin: 80px 20px 0px;
+    margin: 40px 20px 0px;
   }
 }
 </style>
