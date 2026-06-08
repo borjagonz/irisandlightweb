@@ -139,21 +139,28 @@
 
       <div class="price-cards">
 
-        <div
-          v-for="(item, i) in category.items.slice(
-  category.visible,
-  category.visible + cardsToShow
-)"
-          :key="i"
-          class="price-card"
-        >
-          <img :src="item.image" :alt="item.title">
+<div
+  v-for="(item, i) in category.items.slice(
+    category.visible,
+    category.visible + cardsToShow
+  )"
+  :key="i"
+  class="price-card"
+>
+  <img :src="item.image" :alt="item.title">
 
-          <h3>{{ item.title }}</h3>
+  <h3>{{ item.title }}</h3>
 
-          <p class="price-value">
-            {{ item.price }}
-          </p>
+<div class="price-options">
+  <div
+    v-for="option in item.options"
+    :key="option.size"
+    class="price-option"
+  >
+    <span>{{ option.size }}</span>
+    <span>{{ option.price }}</span>
+  </div>
+</div>
         </div>
 
       </div>
@@ -302,6 +309,12 @@ import foto1 from "../assets/foto1.jpg"
 import foto2 from "../assets/foto2.jpg"
 import foto3 from "../assets/foto3.jpg"
 import foto4 from "../assets/foto4.jpg"
+import foto5 from "../assets/foto5.jpg"
+import foto6 from "../assets/foto6.jpg"
+import foto7 from "../assets/foto7.jpg"
+import foto8 from "../assets/foto8.jpg"
+import foto9 from "../assets/foto9.jpg"
+import foto10 from "../assets/foto10.jpg"
 
 import hero1 from "../assets/hero-irisandlight1.jpg"
 import hero2 from "../assets/hero-irisandlight2.jpg"
@@ -309,6 +322,25 @@ import hero3 from "../assets/hero-irisandlight3.jpg"
 import hero4 from "../assets/hero-irisandlight4.jpg"
 import hero5 from "../assets/hero-irisandlight5.jpg"
 import hero6 from "../assets/hero-irisandlight6.jpg"
+
+import prices1 from "../assets/prices1.jpg"
+import prices2 from "../assets/prices2.jpg"
+import prices3 from "../assets/prices3.jpg"
+import prices4 from "../assets/prices4.jpg"
+import prices5 from "../assets/prices5.jpg"
+import prices6 from "../assets/prices6.jpg"
+import prices7 from "../assets/prices7.jpg"
+import prices8 from "../assets/prices8.jpg"
+import prices9 from "../assets/prices9.jpg"
+import prices10 from "../assets/prices10.jpg"
+import prices11 from "../assets/prices11.jpg"
+import prices12 from "../assets/prices12.jpg"
+import prices13 from "../assets/prices13.jpg"
+import prices14 from "../assets/prices14.jpg"
+import prices15 from "../assets/prices15.jpg"
+
+
+
 
 export default {
   data() {
@@ -346,92 +378,228 @@ export default {
         foto1,
         foto2,
         foto3,
-        foto4
+        foto4,
+        foto5,
+        foto6,
+        foto7,
+        foto8,
+        foto9,
+        foto10
       ],
 
       cardsToShow: 3,
 
-      priceCategories: [
-        {
-          title: "Printing on photographic paper",
-          visible: 0,
-          items: Array.from({ length: 12 }, (_, i) => ({
-            image: [foto1, foto2, foto3, foto4][i % 4],
-            title: `Model ${i + 1}`,
-            price: `$${79 + (i * 10)}`
-          }))
-        },
+priceCategories: [
+{
+title: "Print & Digital",
+visible: 0,
+items: [
+{
+image: prices1,
+title: "Single Iris Experience",
+options: [
+{ size: "Print", price: "$79" },
+{ size: "Digital", price: "$89" },
+{ size: "Print + Digital", price: "$128" }
+]
+},
+{
+image: prices2,
+title: "Couples Experience",
+options: [
+{ size: "2 Eyes & Digital Design Work", price: "$158" },
+{ size: "Extra Eye", price: "$59" }
+]
+}
+]
+},
 
-        {
-          title: "Direct printing on Dibond Aluminum",
-          visible: 0,
-          items: Array.from({ length: 13 }, (_, i) => ({
-            image: [foto1, foto2, foto3, foto4][i % 4],
-            title: `Model ${i + 1}`,
-            price: `$${99 + (i * 10)}`
-          }))
-        },
+{
+title: "Blocks",
+visible: 0,
+items: [
+{
+image: prices3,
+title: "Acrylic Block (Framed in store)",
+options: [
+{ size: "1 Eye", price: "$198" },
+{ size: "2 Eyes", price: "$250" },
+{ size: "3 Eyes", price: "$310" },
+{ size: "4 Eyes", price: "$350" }
+]
+},
+{
+image: prices4,
+title: "Acrylic Blocks (Desk Ornaments)",
+options: [
+{ size: "10 × 10 cm", price: "$299" },
+{ size: "20 × 20 cm", price: "$499" }
+]
+}
+]
+},
 
-        {
-          title: "Acrylic Frame",
-          visible: 0,
-          items: Array.from({ length: 13 }, (_, i) => ({
-            image: [foto1, foto2, foto3, foto4][i % 4],
-            title: `Model ${i + 1}`,
-            price: `$${119 + (i * 10)}`
-          }))
-        },
+{
+title: "Wearable Collection",
+visible: 0,
+items: [
+{
+image: prices5,
+title: "Necklaces",
+options: [
+{ size: "Stainless Steel Small", price: "$120" },
+{ size: "Stainless Steel Large", price: "$150" },
+{ size: "Sterling Silver Small", price: "$330" },
+{ size: "Sterling Silver Large", price: "$380" },
+{ size: "Blue & White Zirconia Pendant", price: "$249" },
+{ size: "Zirconia Halo Pendant", price: "$249" }
+]
+},
+{
+image: prices6,
+title: "Bracelets & Accessories",
+options: [
+{ size: "Leather Wrap Bracelet", price: "$190" },
+{ size: "Milanese Rope Bracelet", price: "$120" },
+{ size: "Iris Charm Bracelet", price: "$130" },
+{ size: "Personalised Iris Cufflinks", price: "$140" },
+{ size: "Personal Iris Key Chain", price: "$90" },
+{ size: "Double Iris Key Chain", price: "$110" }
+]
+}
+]
+},
 
-        {
-          title: "Premium Acrylic Frame",
-          visible: 0,
-          items: Array.from({ length: 13 }, (_, i) => ({
-            image: [foto1, foto2, foto3, foto4][i % 4],
-            title: `Model ${i + 1}`,
-            price: `$${149 + (i * 10)}`
-          }))
-        },
+{
+title: "Wall Art - Acrylic",
+visible: 0,
+items: [
+{
+image: prices7,
+title: "Square Acrylic",
+options: [
+{ size: "30 × 30 cm", price: "$580" },
+{ size: "40 × 40 cm", price: "$680" },
+{ size: "50 × 50 cm", price: "$780" },
+{ size: "60 × 60 cm", price: "$880" },
+{ size: "70 × 70 cm", price: "$980" },
+{ size: "80 × 80 cm", price: "$1080" },
+{ size: "90 × 90 cm", price: "$1300" },
+{ size: "100 × 100 cm", price: "$1400" }
+]
+},
 
-        {
-          title: "Acrylic Block",
-          visible: 0,
-          items: [
-            {
-              image: foto1,
-              title: "Model 1",
-              price: "$199"
-            },
-            {
-              image: foto2,
-              title: "Model 2",
-              price: "$249"
-            }
-          ]
-        },
+  {
+    image: prices8,
+    title: "2 Eyes Rectangular Acrylic Frames",
+    options: [
+      { size: "40 × 20 cm", price: "$600" },
+      { size: "60 × 30 cm", price: "$750" },
+      { size: "80 × 40 cm", price: "$950" },
+      { size: "100 × 50 cm", price: "$1100" },
+      { size: "120 × 60 cm", price: "$1200" }
+    ]
+  },
 
-        {
-          title: "Round Acrylic Frame",
-          visible: 0,
-          items: [
-            {
-              image: foto3,
-              title: "Model 1",
-              price: "$199"
-            },
-            {
-              image: foto4,
-              title: "Model 2",
-              price: "$249"
-            }
-          ]
-        }
-      ]
+  {
+    image: prices9,
+    title: "3 Eyes Rectangular Acrylic Frames",
+    options: [
+      { size: "60 × 20 cm", price: "$700" },
+      { size: "90 × 30 cm", price: "$950" },
+      { size: "120 × 40 cm", price: "$1500" },
+      { size: "150 × 50 cm", price: "$1750" }
+    ]
+  },
+
+  {
+    image: prices10,
+    title: "4 Eyes Rectangular Acrylic Frames",
+    options: [
+      { size: "80 × 20 cm", price: "$1100" },
+      { size: "120 × 30 cm", price: "$1500" },
+      { size: "160 × 40 cm", price: "$1750" },
+      { size: "200 × 50 cm", price: "$2000" }
+    ]
+  },
+
+  {
+    image: prices11,
+    title: "Circular Acrylic Frames",
+    options: [
+      { size: "50 × 50 cm", price: "$840" },
+      { size: "60 × 60 cm", price: "$990" },
+      { size: "70 × 70 cm", price: "$1200" },
+      { size: "80 × 80 cm", price: "$1350" },
+      { size: "90 × 90 cm", price: "$1600" },
+      { size: "100 × 100 cm", price: "$1750" }
+    ]
+  }
+]
+
+},
+
+{
+title: "Wall Art Direct Print Aluminium Dibond",
+visible: 0,
+items: [
+{
+image: prices12,
+title: "Square Dibond",
+options: [
+{ size: "40 × 40 cm", price: "$550" },
+{ size: "50 × 50 cm", price: "$620" },
+{ size: "60 × 60 cm", price: "$690" },
+{ size: "70 × 70 cm", price: "$760" },
+{ size: "80 × 80 cm", price: "$830" },
+{ size: "90 × 90 cm", price: "$900" },
+{ size: "100 × 100 cm", price: "$970" }
+]
+},
+
+  {
+    image: prices13,
+    title: "2 Eyes Rectangular Dibond",
+    options: [
+      { size: "40 × 20 cm", price: "$420" },
+      { size: "60 × 30 cm", price: "$520" },
+      { size: "80 × 40 cm", price: "$620" },
+      { size: "100 × 50 cm", price: "$720" },
+      { size: "120 × 60 cm", price: "$820" }
+    ]
+  },
+
+  {
+    image: prices14,
+    title: "3 Eyes Rectangular Dibond",
+    options: [
+      { size: "60 × 20 cm", price: "$700" },
+      { size: "90 × 30 cm", price: "$950" },
+      { size: "120 × 40 cm", price: "$1500" },
+      { size: "150 × 50 cm", price: "$1750" }
+    ]
+  },
+
+  {
+    image: prices15,
+    title: "4 Eyes Rectangular Dibond",
+    options: [
+      { size: "80 × 20 cm", price: "$900" },
+      { size: "120 × 30 cm", price: "$1300" },
+      { size: "160 × 40 cm", price: "$1700" },
+      { size: "200 × 50 cm", price: "$2000" }
+    ]
+  }
+]
+
+}
+]
     }
   },
 
   methods: {
     updateCardsToShow() {
-      if (window.innerWidth <= 769) {
+      if (window.innerWidth <= 900) {
         this.cardsToShow = 1
       } else if (window.innerWidth <= 1200) {
         this.cardsToShow = 2
@@ -959,7 +1127,7 @@ ${this.message}`
   width: 50%;
   height: 700px;
   object-fit: cover;
-  opacity: 0.15;
+  opacity: 0.12;
   transition: all 0.9s ease;
   filter: blur(1px);
   border: 1px solid rgba(255,255,255, 0.5);
@@ -1019,22 +1187,22 @@ ${this.message}`
 
 .slide-next-enter-from {
   opacity: 0;
-  margin-left: -120px;
+  margin-left: -400px;
 }
 
 .slide-next-leave-to {
   opacity: 0;
-  margin-left: 120px;
+  margin-left: 400px;
 }
 
 .slide-prev-enter-from {
   opacity: 0;
-  margin-left: 120px;
+  margin-left: 400px;
 }
 
 .slide-prev-leave-to {
   opacity: 0;
-  margin-left: -120px;
+  margin-left: -400px;
 }
 
 .dots {
@@ -1076,7 +1244,7 @@ ${this.message}`
 }
 
 .prices {
-  padding: 100px 50px 10px 50px;
+  padding: 100px 40px 10px 40px;
 }
 
 .prices h1 {
@@ -1125,6 +1293,7 @@ ${this.message}`
   overflow: hidden;
   transition: 0.3s;
   width: 31%;
+  height: auto;
 }
 
 .price-card:hover {
@@ -1133,7 +1302,7 @@ ${this.message}`
 
 .price-card img {
   width: 100%;
-  height: 250px;
+  height: 350px;
   object-fit: cover;
 }
 
@@ -1143,12 +1312,32 @@ ${this.message}`
   margin: 0;
 }
 
-.price-value {
-  color: white !important;
-  font-size: 22px !important;
+.price-options {
+  padding: 20px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.price-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 4px 0;
+
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+
+  color: white;
+  font-size: 15px;
+}
+
+.price-option:last-child {
+  border-bottom: none;
+}
+
+.price-option span:last-child {
   font-weight: 700;
-  padding: 0 30px 10px;
-  text-align: left !important;
 }
 
 .price-arrow-left {
@@ -1188,7 +1377,7 @@ ${this.message}`
 
 .booking {
   background-color: white;
-  margin: 100px 50px 0px 50px;
+  margin: 50px 50px 0px 50px;
   padding: 50px;
   border-radius: 50px;
 }
@@ -1282,7 +1471,7 @@ input[type="time"] {
 .contact {
   margin: 50px;
   padding: 50px;
-  background-color: rgba(20, 20, 20, 1);
+  background-color: rgba(25, 25, 25, 1);
   border-radius: 50px;
 }
 
@@ -1632,7 +1821,15 @@ input[type="time"] {
   .gift h3{
     margin: 0;
   }
+  
 
+}
+
+@media (max-width: 900px) {
+  .price-card {
+  width: 80%;
+  height: auto;
+}
 }
 
 @media (max-width: 769px) {
@@ -1844,11 +2041,11 @@ input[type="time"] {
   }
 
   .prices {
-    padding: 80px 30px 0px;
+    padding: 80px 20px 0px;
 }
 
   .price-carousel{
-    gap: 20px;
+    gap: 10px;
   }
 
 
@@ -1958,7 +2155,7 @@ input[type="time"] {
     margin: 20px 30px;
   }
     .prices {
-    padding: 80px 20px 0px;
+    padding: 80px 15px 0px;
 }
 
   .prices h2{
@@ -1970,7 +2167,7 @@ input[type="time"] {
   }
 
   .price-carousel {
-    gap: 15px;
+    gap: 10px;
   }
 
   .price-row {
