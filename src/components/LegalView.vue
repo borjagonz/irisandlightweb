@@ -204,7 +204,7 @@ Email: hello@irisandlight.ai <br>
 }
 
 h1 {
-  font-size: 56px;
+  font-size: 42px;
   margin-bottom: 80px;
   text-align: left;
 }
