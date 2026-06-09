@@ -126,7 +126,14 @@
     :key="index"
     class="price-row"
   >
-    <h2>{{ category.title }}</h2>
+<h2>{{ category.title }}</h2>
+
+<p
+  v-if="category.description"
+  class="category-description"
+>
+  {{ category.description }}
+</p>
 
     <div class="price-carousel">
 
@@ -285,7 +292,8 @@
 </a>
     </section>
     <section id="footer" class="footer">
-      <div class="text"><p>Iris & Light<br> - <br>© All rights reserved</p></div>
+      <div class="text"><p>© 2026 Iris & Light. All rights reserved.
+<br> - <br>Iris & Light is operated by Sociabl Pty Ltd (ABN 42 684 648 011).</p></div>
       <div class="rrss-icons">
               <a class="instagram-icon" href="https://www.instagram.com/irisandlight.ai/" target="blank">
         <img src="../icons/instagram-icon.svg" alt="instagram icon">
@@ -296,10 +304,14 @@
       </div>
 
       <div class="footer-links">
-        <a class="footer-link" href="">Legal Notice & Privacy Policy</a>
+<router-link class="footer-link" to="/legal">
+  Legal Notice & Privacy Policy
+</router-link>
         <p>-</p>
-        <a class="footer-link" href="">Cookies Policy</a>
-      </div>
+<router-link class="footer-link" to="/legal#cookies">
+  Cookies Policy
+</router-link>      
+</div>
     </section>
  </div>
 </template>
@@ -472,6 +484,7 @@ options: [
 
 {
 title: "Wall Art - Acrylic",
+description: "Includes - Iris capture, precision enhancement and artistic rendering, gallery quality print production, shipping, delivered ready to hang, all digital files + custom compositions",
 visible: 0,
 items: [
 {
@@ -541,6 +554,7 @@ options: [
 
 {
 title: "Wall Art Direct Print Aluminium Dibond",
+description: "Includes - Iris capture, precision enhancement and artistic rendering, gallery quality print production, shipping, delivered ready to hang, all digital files + custom compositions",
 visible: 0,
 items: [
 {
@@ -1260,6 +1274,15 @@ ${this.message}`
   text-align: center;
   font-size: 20px;
   margin-bottom: 75px;
+}
+
+.category-description {
+  color: rgb(196, 196, 196);
+  text-align: center;
+  max-width: 900px;
+  margin: -25px auto 40px auto;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 .price-row {

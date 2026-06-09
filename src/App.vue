@@ -1,6 +1,6 @@
 <template>
-<LandingIrisAndLightComponent></LandingIrisAndLightComponent>
 <ScrollToTopButton></ScrollToTopButton>
+<router-view />
 </template>
 
 <script setup>
