@@ -1876,6 +1876,16 @@ input[type="time"] {
   .gift h3{
     margin: 0;
   }
+
+  .booking-cards {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .booking-card {
+    width: 47%;
+    box-sizing: border-box;
+  }
   
 
 }
@@ -1963,6 +1973,15 @@ input[type="time"] {
 .price-row {
   margin-bottom: 75px;
 }
+
+.booking-cards{
+  width: 100%;
+}
+
+  .booking-card {
+    width: 100%;
+  }
+  
 
 .form{
   display: flex;
@@ -2117,9 +2136,6 @@ input[type="time"] {
     margin: 50px 0px 30px;
   }
 
-  .confirm-btn {
-    margin-bottom: 30px;
-  }
 
   .contact {
     padding: 50px 30px;
@@ -2219,6 +2235,8 @@ input[type="time"] {
 
   .prices p{
         font-size: 16px;
+        margin-left: 10px;
+        margin-right: 10px;
   }
 
   .price-carousel {
@@ -2246,6 +2264,10 @@ input[type="time"] {
 
   .confirm-btn{
     font-size: 16px;
+  }
+
+  .contact h1 {
+    font-size: 32px;
   }
 
   .contact-btn{
