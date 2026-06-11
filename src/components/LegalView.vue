@@ -246,6 +246,8 @@ ul {
   display: flex;
   justify-content: space-between;
   margin-bottom: 150px;
+  flex-wrap: wrap;
+  gap: 30px
 }
 
 .logo-link {
@@ -275,6 +277,9 @@ ul {
   border-radius: 100px;
 
   transition: all 0.3s ease;
+
+  display: inline-block;
+
 }
 
 .back-home-btn:hover {

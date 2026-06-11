@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#B3B3B3;stroke-width:0.75;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st2{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+</style>
+<g>
+	<g>
+		<line class="st0" x1="50" y1="45.8" x2="50" y2="31.8"/>
+		<line class="st0" x1="50" y1="87.4" x2="50" y2="73.4"/>
+		<line class="st0" x1="43.1" y1="47.6" x2="36.1" y2="35.5"/>
+		<line class="st0" x1="63.9" y1="83.6" x2="56.9" y2="71.6"/>
+		<line class="st0" x1="38" y1="52.7" x2="26" y2="45.7"/>
+		<line class="st0" x1="74" y1="73.5" x2="62" y2="66.5"/>
+		<line class="st0" x1="36.2" y1="59.6" x2="22.2" y2="59.6"/>
+		<line class="st0" x1="77.8" y1="59.6" x2="63.8" y2="59.6"/>
+		<line class="st0" x1="38" y1="66.5" x2="26" y2="73.5"/>
+		<line class="st0" x1="74" y1="45.7" x2="62" y2="52.7"/>
+		<line class="st0" x1="43.1" y1="71.6" x2="36.1" y2="83.6"/>
+		<line class="st0" x1="63.9" y1="35.5" x2="56.9" y2="47.6"/>
+	</g>
+	<g>
+		<line class="st0" x1="46.4" y1="46.3" x2="42.8" y2="32.8"/>
+		<line class="st0" x1="57.2" y1="86.4" x2="53.6" y2="72.9"/>
+		<line class="st0" x1="40.2" y1="49.8" x2="30.4" y2="40"/>
+		<line class="st0" x1="69.6" y1="79.2" x2="59.8" y2="69.4"/>
+		<line class="st0" x1="36.7" y1="56" x2="23.2" y2="52.4"/>
+		<line class="st0" x1="76.8" y1="66.8" x2="63.3" y2="63.2"/>
+		<line class="st0" x1="36.7" y1="63.2" x2="23.2" y2="66.8"/>
+		<line class="st0" x1="76.8" y1="52.4" x2="63.3" y2="56"/>
+		<line class="st0" x1="40.2" y1="69.4" x2="30.4" y2="79.2"/>
+		<line class="st0" x1="69.6" y1="40" x2="59.8" y2="49.8"/>
+		<line class="st0" x1="46.4" y1="72.9" x2="42.8" y2="86.4"/>
+		<line class="st0" x1="57.2" y1="32.8" x2="53.6" y2="46.3"/>
+	</g>
+</g>
+<g>
+	<path class="st1" d="M50,27.8c-17.5,0-31.7,14.2-31.7,31.7S32.5,91.3,50,91.3s31.7-14.2,31.7-31.7S67.5,27.8,50,27.8L50,27.8z"/>
+</g>
+<circle class="st1" cx="50" cy="59.6" r="9.9"/>
+<polyline class="st1" points="1,25.5 1,1 25.5,1 "/>
+<polyline class="st1" points="74.5,1 99,1 99,25.5 "/>
+<polyline class="st1" points="99,74.5 99,99 74.5,99 "/>
+<polyline class="st1" points="25.5,99 1,99 1,74.5 "/>
+<g>
+	<polygon class="st2" points="50,6.7 55.1,22.4 71.4,22.4 58.2,32.1 63.2,47.6 50,38 36.8,47.6 41.8,32.1 28.6,22.4 44.9,22.4 	"/>
+</g>
+</svg>

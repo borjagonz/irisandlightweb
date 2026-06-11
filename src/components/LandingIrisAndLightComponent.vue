@@ -185,40 +185,34 @@
 
     <section id="booking" class="booking">
       <h1>BOOK YOUR SESSION</h1>
-      <p>Come and visit us to feel the iris experience. Choose the day and time that you wish and we'll do a photoshoot of your iris.</p>
+      <p>Come and visit us, choose your iris experience, and immerse yourself in a unique artistic journey. Discover the remarkable details of your iris and transform them into a stunning masterpiece that celebrates your individuality.</p>
 <div class="form">
 
-  <input
-    type="text"
-    id="name"
-    name="name"
-    placeholder="Name"
-  >
-
-  <input
-    type="tel"
-    id="phone"
-    name="phone"
-    placeholder="Phone Number"
-  >
-
-  <input
-    type="date"
-    id="date"
-    name="date"
-  >
-
-  <input
-    type="time"
-    id="hour"
-    name="hour"
-  >
+  <a class="booking-cards" href="https://app.acuityscheduling.com/schedule/8b7f3d65" target="blank">
+    <div class="booking-card">
+      <img class="booking-img" src="../icons/single-iris.svg" alt="">
+      <h3>Single Iris Portrait Experience</h3>
+      <span class="confirm-btn">Book</span>
+    </div>
+        <div class="booking-card">
+      <img class="booking-img" src="../icons/couple-iris.svg" alt="">
+      <h3>Couples Iris Artwork Experience</h3>
+      <span class="confirm-btn">Book</span>
+    </div>
+        <div class="booking-card">
+      <img class="booking-img" src="../icons/family-iris.svg" alt="">
+      <h3>Family Iris Artwork Experience</h3>
+      <span class="confirm-btn">Book</span>
+    </div>
+        <div class="booking-card">
+      <img class="booking-img" src="../icons/vip-iris.svg" alt="">
+      <h3>VIP Private Iris Session</h3>
+      <span class="confirm-btn">Book</span>
+    </div>
+  </a>
 
 </div>
 
-<button class="confirm-btn">
-  Confirm Booking
-</button>
     </section>
 
 <section id="contact" class="contact">
@@ -314,9 +308,12 @@
 </div>
     </section>
  </div>
+ <BookSessionBtn/>
 </template>
 
 <script>
+
+
 import foto1 from "../assets/foto1.jpg"
 import foto2 from "../assets/foto2.jpg"
 import foto3 from "../assets/foto3.jpg"
@@ -351,18 +348,20 @@ import prices13 from "../assets/prices13.jpg"
 import prices14 from "../assets/prices14.jpg"
 import prices15 from "../assets/prices15.jpg"
 
-
-
+import BookSessionBtn from "./BookSessionBtn.vue"
 
 export default {
+
+  components: {
+    BookSessionBtn
+  },
+
   data() {
     return {
       name: "",
       email: "",
       phone: "",
       message: "",
-
-      whatsappLink: "https://wa.me/34699699551",
 
       isScrolled: false,
       menuOpen: false,
@@ -717,7 +716,7 @@ Message:
 ${this.message}`
 
       window.location.href =
-        `mailto:borjagonz@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+        `mailto:hello@irisandlight.ai ?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
     }
   },
 
@@ -1418,12 +1417,48 @@ ${this.message}`
   margin: 0 auto;
 }
 
+.booking-cards {
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  width: 100%;
+  gap: 25px;
+}
+
+.booking-card {
+  color: black;
+  padding: 30px;
+  outline: 1px solid black;
+  border-radius: 50px;
+  margin: 0px;
+  text-align: center;
+  width: 20%;
+  transition: 0.3s ease-in-out;
+  align-content: center;
+}
+
+.booking-card:hover{
+  background-color: rgba(240, 240, 240, 1);
+  outline: solid 1px rgba(240, 240, 240, 1);
+  scale: 1.05;
+}
+
+.booking-img {
+  width: 80px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.booking h3 {
+  margin: 0;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
 .form {
   max-width: 1200px;
   margin: 75px auto 50px auto;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 25px;
 }
 
@@ -1464,9 +1499,6 @@ input[type="time"] {
 }
 
 .confirm-btn {
-  max-width: 1200px;
-
-  height: 65px;
   padding: 15px 30px;
 
   display: block;
@@ -1484,7 +1516,7 @@ input[type="time"] {
 
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-bottom: 50px;
+  margin-top: 35px;
 }
 
 .confirm-btn:hover {
