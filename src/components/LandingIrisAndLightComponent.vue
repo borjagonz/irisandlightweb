@@ -31,11 +31,6 @@
 </a><a class="navlink" @click.prevent="scrollToSection('contact')">Contact Us</a>
 <a class="navlink" @click.prevent="scrollToSection('location')">Find Us</a>
 <a class="booklink" @click.prevent="scrollToSection('booking')">Book a Session</a>        
-    <div>
-            <a class="langbtn" href="">
-                <img src="" alt="">
-            </a>
-        </div>
     </div>
 </nav>
         <div class="hero">
@@ -831,9 +826,12 @@ ${this.message}`
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     transition: all 0.5s ease;
-    z-index: 99999;
+    z-index: 2147483647;
+    transform: translateZ(0);
     padding: 50px;
     margin: 0;
     box-sizing: border-box;
@@ -844,6 +842,10 @@ ${this.message}`
   backdrop-filter: blur(20px);
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 99999;
+  top: 0;
+  left: 0;
+  z-index: 2147483647;
+  transform: translateZ(0);
 }
 
 .logo {
@@ -1015,7 +1017,7 @@ ${this.message}`
 
   transition: opacity 0.5s ease;
 
-  z-index: -1;
+  z-index: 0;
 }
 
 .card:hover::before {
@@ -1029,17 +1031,17 @@ ${this.message}`
 
 .card-1::before {
   background-image: url('../assets/card1.jpg');
-  z-index: -1;
+  z-index: 0;
 }
 
 .card-2::before {
   background-image: url('../assets/card2.jpg');
-  z-index: -1;
+  z-index: 0;
 }
 
 .card-3::before {
   background-image: url('../assets/card3.jpg');
-  z-index: -1;
+  z-index: 0;
 }
 
 .card:hover {
@@ -1115,7 +1117,7 @@ ${this.message}`
   justify-content: center;
 
   overflow: hidden;
-  z-index: -2;
+  z-index: 0;
 
 }
 
@@ -1130,7 +1132,7 @@ ${this.message}`
   left: 50%;
   top: 50%;
 
-  z-index: 0;
+  z-index: 1;
 
   transform: translate(-50%, -50%);
   backface-visibility: hidden;
@@ -1144,17 +1146,17 @@ ${this.message}`
   transition: all 0.9s ease;
   filter: blur(1px);
   border: 1px solid rgba(255,255,255, 0.5);
-  z-index: -2;
+  z-index: 0;
 }
 
 .left-image {
   left: auto;
-  z-index: -2;
+  z-index: 0;
 }
 
 .right-image {
   right: auto;
-  z-index: -2;
+  z-index: 0;
 
 }
 
