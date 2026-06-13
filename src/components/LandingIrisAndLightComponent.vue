@@ -823,19 +823,19 @@ ${this.message}`
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    transition: all 0.5s ease;
-    z-index: 2147483647;
-    transform: translateZ(0);
-    padding: 50px;
-    margin: 0;
-    box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 0.5s ease;
+  z-index: 2147483647;
+  transform: translateZ(0);
+  padding: 50px;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .navbar.scrolled {
@@ -934,12 +934,12 @@ ${this.message}`
 
 .herobtn {
   text-decoration: none;
-    color: white;
-    border: 1px solid rgb(80, 80, 80);
-    padding: 15px 40px;
-    border-radius: 100px;
-    font-size: 20px;
-    transition: all 0.5s ease;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 15px 40px;
+  border-radius: 100px;
+  font-size: 20px;
+  transition: all 0.5s ease;
   width: fit-content;
 }
 
@@ -979,7 +979,7 @@ ${this.message}`
 
   text-align: center;
   padding: 50px;
-    border: 1px solid rgb(80, 80, 80);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50px;
   width: 30%;
 
@@ -1096,7 +1096,6 @@ ${this.message}`
   margin: 20px 50px;
 
 }
-
 
 .carousel-wrapper {
   position: relative;
@@ -1244,7 +1243,12 @@ ${this.message}`
 .gift {
     display: flex;
     justify-content: center;
+    margin: 0 auto;
     margin-top: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 100px;
+  max-width: 800px;
+  padding: 20px 30px 20px 10px;
 }
 
 .gift h3{
@@ -1312,7 +1316,7 @@ ${this.message}`
 }
 
 .price-card {
-  border: 1px solid #333;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50px;
   overflow: hidden;
   transition: 0.3s;
@@ -1567,7 +1571,7 @@ input[type="time"] {
   padding: 20px 30px;
 
   border-radius: 35px;
-  border: 1px solid rgb(80, 80, 80);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 
   background: transparent;
   color: white;
@@ -1608,7 +1612,7 @@ input[type="time"] {
   margin: 20px auto 0 auto;
   margin-bottom: 50px;
 
-  border: 1px solid rgb(80, 80, 80);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   background: transparent;
   color: white;
 
@@ -1628,7 +1632,7 @@ input[type="time"] {
 
 .location {
   margin: 50px;
-  border: 1px solid rgb(80, 80, 80);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50px;
   padding: 50px;
   justify-content: center;
@@ -1654,7 +1658,7 @@ input[type="time"] {
 
   text-decoration: none;
 
-  border: 1px solid rgb(80, 80, 80);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
   padding: 15px 30px;
   background-color: transparent;
@@ -1873,6 +1877,8 @@ input[type="time"] {
     margin: 0 auto;
     margin-top: 75px;
     margin-bottom: 25px;
+    padding: 20px 50px 70px 50px;
+    border-radius: 500px;
   }
 
   .gift h3{
@@ -2110,6 +2116,10 @@ input[type="time"] {
 
 }
 
+.gift {
+  padding: 10px 0px 60px 0px;
+}
+
   .gift h3 {
     font-size: 24px;
     margin: 0px 50px;
@@ -2227,6 +2237,14 @@ input[type="time"] {
     font-size: 16px;
     margin: 20px 30px;
   }
+
+
+.gift {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px 0px 60px 0px;
+}
+
     .prices {
     padding: 80px 15px 0px;
 }
