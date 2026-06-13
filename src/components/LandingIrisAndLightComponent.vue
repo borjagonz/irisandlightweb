@@ -1,17 +1,5 @@
 <template>
  <div class="landing">
-    <header class="header">
-<div
-  class="header-bg"
-  :style="{ backgroundImage: `url(${heroImages[currentHero]})` }"
->
-  <div
-    class="header-bg-next"
-    :class="{ active: fadeHero }"
-    :style="{ backgroundImage: `url(${heroImages[nextHero]})` }"
-  ></div>
-</div>
-        <div class="overlay">
 <nav :class="['navbar', { scrolled: isScrolled }]">
     <img class="logo" src="../assets/IrisAndLight-logo-white.png" alt="">
 
@@ -33,6 +21,19 @@
 <a class="booklink" @click.prevent="scrollToSection('booking')">Book a Session</a>        
     </div>
 </nav>
+    <header class="header">
+<div
+  class="header-bg"
+  :style="{ backgroundImage: `url(${heroImages[currentHero]})` }"
+>
+  <div
+    class="header-bg-next"
+    :class="{ active: fadeHero }"
+    :style="{ backgroundImage: `url(${heroImages[nextHero]})` }"
+  ></div>
+</div>
+        <div class="overlay">
+
         <div class="hero">
             <h1>YOUR EYE. <br>TURNED INTO ART.</h1>
             <H3>TURN YOUR IRIS INTO STUNING <br>PERSONALISED ARTWORK</H3>
@@ -758,7 +759,7 @@ ${this.message}`
 .header {
   position: relative;
   height: 100vh;
-  overflow: visible;
+  overflow: hidden;
 }
 
 
