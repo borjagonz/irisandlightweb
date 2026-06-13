@@ -758,7 +758,7 @@ ${this.message}`
 .header {
   position: relative;
   height: 100vh;
-  overflow: hidden;
+  overflow: visible;
 }
 
 
@@ -841,7 +841,6 @@ ${this.message}`
   padding: 25px 50px;
   backdrop-filter: blur(20px);
   background-color: rgba(0, 0, 0, 0.4);
-  z-index: 99999;
   top: 0;
   left: 0;
   z-index: 2147483647;
