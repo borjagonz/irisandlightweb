@@ -957,6 +957,7 @@ ${this.message}`
     text-align: center;
     font-size: 48px;
     font-weight: 900;
+    z-index: 2;
 }
 
 .process p {
@@ -1060,7 +1061,7 @@ ${this.message}`
     font-size: 28px;
     text-align: center;
   position: relative;
-  z-index: 0;
+  z-index: 1;
 }
 
 .card h3 {
@@ -1068,12 +1069,12 @@ ${this.message}`
     margin-top: 30px;
     font-size: 28px;
   position: relative;
-  z-index: 0;
+  z-index: 1;
 }
 
 .card p {
     position: relative;
-  z-index: 0;
+  z-index: 1;
   font-size: 16px
 
 }
@@ -1172,7 +1173,7 @@ ${this.message}`
   font-size: 24px;
   cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 0;
+  z-index: 1;
 }
 
 .carousel-btn:hover {
@@ -1245,10 +1246,8 @@ ${this.message}`
     justify-content: center;
     margin: 0 auto;
     margin-top: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 100px;
   max-width: 800px;
-  padding: 20px 30px 20px 10px;
 }
 
 .gift h3{
@@ -1358,6 +1357,7 @@ ${this.message}`
 
   color: white;
   font-size: 15px;
+  gap: 15px;
 }
 
 .price-option:last-child {
@@ -1877,8 +1877,6 @@ input[type="time"] {
     margin: 0 auto;
     margin-top: 75px;
     margin-bottom: 25px;
-    padding: 20px 50px 70px 50px;
-    border-radius: 500px;
   }
 
   .gift h3{
@@ -2116,9 +2114,6 @@ input[type="time"] {
 
 }
 
-.gift {
-  padding: 10px 0px 60px 0px;
-}
 
   .gift h3 {
     font-size: 24px;
@@ -2239,14 +2234,9 @@ input[type="time"] {
   }
 
 
-.gift {
-  margin-left: 20px;
-  margin-right: 20px;
-  padding: 10px 0px 60px 0px;
-}
 
     .prices {
-    padding: 80px 15px 0px;
+    padding: 80px 10px 0px;
 }
 
   .prices h2{
@@ -2260,11 +2250,17 @@ input[type="time"] {
   }
 
   .price-carousel {
-    gap: 10px;
+    gap: 8px;
   }
 
   .price-row {
   margin-bottom: 50px;
+}
+
+.price-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
 }
 
     .contact {
