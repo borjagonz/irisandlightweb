@@ -219,11 +219,27 @@
     We'd love to hear from you.
   </p>
 
-<form class="contact-form" @submit.prevent="sendEmail">
+<form
+  ref="contactForm"
+  class="contact-form"
+  @submit.prevent="submitForm"
+>
+  <input
+    type="hidden"
+    name="access_key"
+    value="7f46d861-134d-4a75-9b20-658866a9b297"
+  >
+
+  <input
+    type="checkbox"
+    name="botcheck"
+    style="display:none;"
+  >
 
   <div class="contact-column">
     <input
       type="text"
+      name="name"
       v-model="name"
       placeholder="Your Name"
       required
@@ -231,6 +247,7 @@
 
     <input
       type="email"
+      name="email"
       v-model="email"
       placeholder="Email Address"
       required
@@ -238,6 +255,7 @@
 
     <input
       type="tel"
+      name="phone"
       v-model="phone"
       placeholder="Phone Number"
     >
@@ -245,6 +263,7 @@
 
   <div class="contact-column">
     <textarea
+      name="message"
       v-model="message"
       placeholder="Your Message"
       required
@@ -254,7 +273,6 @@
   <button type="submit" class="contact-btn">
     Send Message
   </button>
-
 </form>
 </section>
 
@@ -698,22 +716,45 @@ options: [
       }
     },
 
-    sendEmail() {
-      const subject = `New message from ${this.name}`
+    async submitForm() {
+  const form = this.$refs.contactForm;
+  const submitBtn = form.querySelector('button[type="submit"]');
 
-      const body =
-`Name: ${this.name}
+  const formData = new FormData(form);
 
-Email: ${this.email}
+  const originalText = submitBtn.textContent;
 
-Phone: ${this.phone}
+  submitBtn.textContent = "Sending...";
+  submitBtn.disabled = true;
 
-Message:
-${this.message}`
+  try {
+    const response = await fetch(
+      "https://api.web3forms.com/submit",
+      {
+        method: "POST",
+        body: formData
+      }
+    );
 
-      window.location.href =
-        `mailto:hello@irisandlight.ai ?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("Success! Your message has been sent.");
+
+      this.name = "";
+      this.email = "";
+      this.phone = "";
+      this.message = "";
+    } else {
+      alert(`Error: ${data.message}`);
     }
+  } catch (error) {
+    alert("Something went wrong. Please try again.");
+  } finally {
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
+  }
+}
   },
 
   mounted() {
@@ -930,6 +971,9 @@ ${this.message}`
 .herobtns{
     display: flex;
     gap: 25px;
+    margin: 0 auto;
+    justify-content: center;
+    justify-items: center;
 }
 
 .herobtn {
