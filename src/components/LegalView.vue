@@ -1,9 +1,6 @@
 <template>
   <div class="legal-page">
-
-
-<div class="legal-container">
-    <div class="logo-home">
+      <div class="logo-home">
           <router-link to="/" class="logo-link">
     <img
       src="../assets/IrisAndLight-logo-white.png"
@@ -16,6 +13,10 @@
     ← Go back home
   </router-link>
     </div>
+
+
+<div class="legal-container">
+
 
 
   <h1>Legal Information</h1>
@@ -195,7 +196,7 @@ Email: hello@irisandlight.ai <br>
 .legal-page {
   background: #000;
   color: white;
-  padding: 50px 30px;
+  padding: 50px;
 }
 
 .legal-container {
@@ -207,6 +208,7 @@ h1 {
   font-size: 42px;
   margin-bottom: 80px;
   text-align: left;
+  margin-top: 250px;
 }
 
 section {
@@ -244,10 +246,19 @@ ul {
 
 .logo-home{
   display: flex;
+  margin: 0 auto;
   justify-content: space-between;
-  margin-bottom: 150px;
   flex-wrap: wrap;
-  gap: 30px
+  gap: 30px;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  top: 0;
+  left: 0;
+  padding: 50px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .logo-link {
@@ -267,6 +278,7 @@ ul {
   display: flex;
   width: fit-content;
   margin: 0px;
+  height: fit-content;
 
 
   text-decoration: none;

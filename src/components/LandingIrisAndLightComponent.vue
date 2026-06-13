@@ -873,7 +873,7 @@ ${this.message}`
   width: 100%;
   transform: scaleX(0);
   height: 1px;
-  bottom: 0;
+  bottom: -3px;
   left: 0;
   background-color: white;
   transform-origin: bottom center;
