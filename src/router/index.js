@@ -40,4 +40,10 @@ scrollBehavior(to, from, savedPosition) {
 }
 })
 
+router.afterEach(() => {
+  if (window.fbq) {
+    window.fbq('track', 'PageView')
+  }
+})
+
 export default router

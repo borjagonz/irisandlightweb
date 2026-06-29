@@ -184,8 +184,13 @@
       <p>Come and visit us, choose your iris experience, and immerse yourself in a unique artistic journey. Discover the remarkable details of your iris and transform them into a stunning masterpiece that celebrates your individuality.</p>
 <div class="form">
 
-  <a class="booking-cards" href="https://app.acuityscheduling.com/schedule/8b7f3d65" target="blank">
-    <div class="booking-card">
+<a
+  class="booking-cards"
+  href="https://app.acuityscheduling.com/schedule/8b7f3d65"
+  target="_blank"
+  rel="noopener noreferrer"
+  @click="trackBooking"
+>    <div class="booking-card">
       <img class="booking-img" src="../icons/single-iris.svg" alt="">
       <h3>Single Iris Portrait Experience</h3>
       <span class="confirm-btn">Book</span>
@@ -715,6 +720,12 @@ options: [
         category.visible--
       }
     },
+
+      trackBooking() {
+    if (window.fbq) {
+      window.fbq('track', 'Lead')
+    }
+  },
 
     async submitForm() {
   const form = this.$refs.contactForm;
