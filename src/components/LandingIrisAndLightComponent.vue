@@ -891,7 +891,7 @@ options: [
 
 .navbar.scrolled {
   padding: 25px 50px;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, 0.4);
   top: 0;
   left: 0;
