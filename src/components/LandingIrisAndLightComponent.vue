@@ -36,7 +36,7 @@
 
         <div class="hero">
             <h1>YOUR EYE. <br>TURNED INTO ART.</h1>
-            <H3>TURN YOUR IRIS INTO STUNING <br>PERSONALISED ARTWORK</H3>
+            <H3>TURN YOUR IRIS INTO STUNNING <br>PERSONALISED ARTWORK</H3>
             <div class="herobtns">
                 <a class="herobtn" @click.prevent="scrollToSection('samples')">See Samples</a>
                 <a class="herobtn" @click.prevent="scrollToSection('booking')">Book a Session</a>
@@ -186,29 +186,28 @@
 
 <a
   class="booking-cards"
-  href="https://app.acuityscheduling.com/schedule/8b7f3d65"
-  target="_blank"
+    target="_blank"
   rel="noopener noreferrer"
   @click="trackBooking"
 >    <div class="booking-card">
       <img class="booking-img" src="../icons/single-iris.svg" alt="">
       <h3>Single Iris Portrait Experience</h3>
-      <span class="confirm-btn">Book</span>
+      <a class="confirm-btn" href="https://app.acuityscheduling.com/schedule/8b7f3d65/appointment/90038056/calendar/13690722" target="blank">Book</a>
     </div>
         <div class="booking-card">
       <img class="booking-img" src="../icons/couple-iris.svg" alt="">
       <h3>Couples Iris Artwork Experience</h3>
-      <span class="confirm-btn">Book</span>
+      <a class="confirm-btn" href="https://app.acuityscheduling.com/schedule/8b7f3d65/appointment/90038355/calendar/13690722" target="blank">Book</a>
     </div>
         <div class="booking-card">
       <img class="booking-img" src="../icons/family-iris.svg" alt="">
       <h3>Family Iris Artwork Experience</h3>
-      <span class="confirm-btn">Book</span>
+      <a class="confirm-btn" href="https://app.acuityscheduling.com/schedule/8b7f3d65/appointment/90038478/calendar/13690722" target="blank">Book</a>
     </div>
         <div class="booking-card">
       <img class="booking-img" src="../icons/vip-iris.svg" alt="">
       <h3>VIP Private Iris Session</h3>
-      <span class="confirm-btn">Book</span>
+      <a class="confirm-btn" href="https://app.acuityscheduling.com/schedule/8b7f3d65/appointment/90038056/calendar/13690722" target="blank">Book</a>
     </div>
   </a>
 
@@ -283,12 +282,12 @@
 
     <section id="location" class="location">
       <h1>FIND OUR MOBILE STUDIO</h1>
-      <p>📍 Westfield Bondi Junction, Oxford Street, Bondi Junction NSW, Australia <br>
+      <p>📍 Miranda Westfield - Level 1 - Near Bath N Table/Quicksilver, Red B1 precinct (Red Basement access nearby) <br>
       📧 hello@irisandlight.ai <br> <br>
       🕒 Mon, Tue & Wed 09:30 am – 06:00 pm<br>
       Fri 09:30 am – 07:00 pm <br>
       Sat & Sun 10:00 am – 06:00 pm</p>
-      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.9149621426336!2d151.248177411866!3d-33.89184387310611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12adf0fa8bf32d%3A0x6d613af64d7a36aa!2sWestfield%20Bondi%20Junction!5e0!3m2!1ses!2ses!4v1779303271075!5m2!1ses!2ses" 
+      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1653.1670186606373!2d151.09958153105515!3d-34.035301546631395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12c79b5339a089%3A0xcecbac0ed1c0d4d6!2sWestfield%20Miranda!5e0!3m2!1ses!2ses!4v1783678156730!5m2!1ses!2ses" 
       width="100%"
       height="450"
       style="border:0;
@@ -1578,6 +1577,7 @@ input[type="time"] {
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 35px;
+  text-decoration: none;
 }
 
 .confirm-btn:hover {
@@ -2334,7 +2334,7 @@ input[type="time"] {
   }
 
   .confirm-btn{
-    font-size: 16px;
+    font-size: 16px;    
   }
 
   .contact h1 {
