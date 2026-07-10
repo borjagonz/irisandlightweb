@@ -4,7 +4,6 @@
 </template>
 
 <script setup>
-import LandingIrisAndLightComponent from './components/LandingIrisAndLightComponent.vue';
 import ScrollToTopButton from './components/ScrollToTopButton.vue';
 </script>
 
