@@ -101,19 +101,19 @@
   <h2 class="section-title">Every iris tells a<br>different story.</h2>
   <div class="gallery-grid">
     <figure class="g-item g-single">
-      <img src="/src/images/single-portrait.jpg" alt="Extreme macro portrait of a single iris, blue outer ring with a fiery amber and rust centre" loading="lazy">
+      <img :src="singlePortrait" alt="Extreme macro portrait of a single iris, blue outer ring with a fiery amber and rust centre" loading="lazy">
       <figcaption>Single Iris Portrait</figcaption>
     </figure>
     <figure class="g-item g-duo">
-      <img src="/src/images/diagonal-duo.jpg" alt="Two irises, one warm amber and one cool blue&#8209;grey, arranged diagonally against a split warm and cool background" loading="lazy">
+      <img :src="diagonalDuo" alt="Two irises, one warm amber and one cool blue&#8209;grey, arranged diagonally against a split warm and cool background" loading="lazy">
       <figcaption>Couples Iris Artwork</figcaption>
     </figure>
     <figure class="g-item g-infinity">
-      <img src="/src/images/couples-infinity.jpg" alt="Two amber irises overlapping in a figure&#8209;eight composition with dramatic side lighting" loading="lazy">
+      <img :src="couplesInfinity" alt="Two amber irises overlapping in a figure&#8209;eight composition with dramatic side lighting" loading="lazy">
       <figcaption>Couples Iris Artwork</figcaption>
     </figure>
     <figure class="g-item g-family">
-      <img src="/src/images/family-grid.jpg" alt="Four irises arranged in a grid, three warm tones and one cool blue&#8209;grey" loading="lazy">
+      <img :src="familyGrid" alt="Four irises arranged in a grid, three warm tones and one cool blue&#8209;grey" loading="lazy">
       <figcaption>Family Iris Artwork</figcaption>
     </figure>
   </div>
@@ -148,6 +148,10 @@
 <script setup>
 
 import heroImage from '@/images/hero-dust-dissolve.jpg'
+import singlePortrait from '@/images/single-portrait.jpg'
+import diagonalDuo from '@/images/diagonal-duo.jpg'
+import couplesInfinity from '@/images/couples-infinity.jpg'
+import familyGrid from '@/images/family-grid.jpg'
 
 </script>
 
