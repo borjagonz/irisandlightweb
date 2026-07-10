@@ -8,8 +8,10 @@
 
 <main id="main">
 
-<section class="hero" style="background-image:url('/src/images/hero-dust-dissolve.jpg')">
-  <div class="hero-scrim"></div>
+<section
+  class="hero"
+  :style="{ backgroundImage: `url(${heroImage})` }"
+>  <div class="hero-scrim"></div>
   <div class="hero-content">
     <p class="eyebrow">Sydney&rsquo;s only accessible iris studio</p>
     <h1 class="hero-title">Your eye.<br>Turned into art.</h1>
@@ -143,7 +145,11 @@
 </div>
 </template>
 
-<script setup></script>
+<script setup>
+
+import heroImage from '@/images/hero-dust-dissolve.jpg'
+
+</script>
 
 <style>
 .miranda-page{
