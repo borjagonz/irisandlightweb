@@ -230,7 +230,7 @@ import familyGrid from '@/images/family-grid.jpg'
   padding: 0 clamp(1.25rem, 4vw, 3rem);
   background:rgba(0,0,0,0.4);
   backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter: blur(20px);
 }
 @media (max-width:504px){.miranda-page .topbar{flex-wrap: wrap; height: 200px;}}
 
