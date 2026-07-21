@@ -123,7 +123,7 @@
   <div class="urgency-inner">
     <p class="section-eyebrow">Miranda Westfield</p>
     <h2 class="section-title">Miranda is temporary.<br>Your artwork isn't.</h2>
-    <p class="urgency-body">We move the studio to bring this experience to more of Sydney. Right now, that's Miranda &#8212; Level 1, near Bath &amp; Table, Red B1 precinct. Once we move on, this is the last chance to capture your iris here.</p>
+    <p class="urgency-body">We move the studio to bring this experience to more of Sydney. Right now, that's Miranda &#8212; Right below the Apple Store — follow the stairs down to our studio. Once we move on, this is the last chance to capture your iris here.</p>
     <a class="btn btn-primary" href="https://app.acuityscheduling.com/schedule/8b7f3d65" target="_blank" rel="noopener">Book before we move on</a>
   </div>
 </section>

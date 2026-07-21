@@ -282,7 +282,7 @@
 
     <section id="location" class="location">
       <h1>FIND OUR MOBILE STUDIO</h1>
-      <p>📍 Miranda Westfield - Level 1 - Near Bath N Table/Quicksilver, Red B1 precinct (Red Basement access nearby) <br>
+      <p>📍 Miranda Westfield - Right below the Apple Store — follow the stairs down to our studio. <br>
       📧 hello@irisandlight.ai <br> <br>
       🕒 Mon, Tue & Wed 09:30 am – 06:00 pm<br>
       Fri 09:30 am – 07:00 pm <br>
