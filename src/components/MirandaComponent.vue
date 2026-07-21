@@ -227,9 +227,7 @@ onMounted(() => {
   ttq.page()
 })
 
-window.ttq.track('ClickButton', {
-  button_name: 'Book your session'
-})
+
 </script>
 
 <style>
