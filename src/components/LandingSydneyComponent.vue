@@ -731,42 +731,121 @@ export default {
          FAQ
       ========================= */
 
-      faqs: [
+      setFAQStructuredData() {
+
+  const existing =
+    document.getElementById(
+      "sydney-faq-structured-data"
+    )
+
+  if (existing) {
+    existing.remove()
+  }
+
+  const script =
+    document.createElement("script")
+
+  script.id =
+    "sydney-faq-structured-data"
+
+  script.type =
+    "application/ld+json"
+
+  script.textContent =
+    JSON.stringify({
+
+      "@context":
+        "https://schema.org",
+
+      "@type":
+        "FAQPage",
+
+      "mainEntity": [
 
         {
-          question: "How long does the iris photography session take?",
-          answer:
-            "The sitting itself is short, around 10–15 minutes. We use specialised close-up imaging to capture the detailed structure of your iris."
+          "@type": "Question",
+          "name":
+            "How much does iris photography cost in Sydney?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Individual sessions start from $79 for a print. Couples packages start from $158 for two eyes with digital design work, with each additional family member’s eye at $59."
+          }
         },
 
         {
-          question: "Can I bring my family or partner?",
-          answer:
-            "Yes. We photograph individuals, couples, families and groups."
+          "@type": "Question",
+          "name":
+            "How long does a session take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Most sessions take around 10–15 minutes per person. Couples and family sessions take a little longer."
+          }
         },
 
         {
-          question: "Do you accept walk-ins?",
-          answer:
-            "Yes. Appointments and walk-ins are welcome at our Westfield Miranda studio."
+          "@type": "Question",
+          "name":
+            "How long until I receive my artwork?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Digital files are typically ready the same day. Wall art and feature pieces take 7–10 business days."
+          }
         },
 
         {
-          question: "How do I choose my artwork?",
-          answer:
-            "After your iris has been captured and artistically edited, you can choose from digital artwork, acrylic blocks, wall art and wearable options."
+          "@type": "Question",
+          "name":
+            "Can children have their iris photographed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes — we regularly photograph children as part of family sessions."
+          }
         },
 
         {
-          question: "Where is the Sydney studio?",
-          answer:
-            "Our Sydney studio is located on Level 1 of Westfield Miranda, 600 Kingsway, Miranda NSW 2228."
+          "@type": "Question",
+          "name":
+            "Do I need to remove my glasses or contact lenses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Let the team know when you arrive if you wear contacts or glasses."
+          }
+        },
+
+        {
+          "@type": "Question",
+          "name":
+            "Is the process safe and comfortable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes. It is a close-up photography sitting — there is no contact with the eye itself."
+          }
+        },
+
+        {
+          "@type": "Question",
+          "name":
+            "Do you take walk-ins, or do I need to book?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Both appointments and walk-ins are welcome, subject to availability."
+          }
         }
 
       ]
 
-    }
-  },
+    })
+
+  document.head.appendChild(script)
+
+},
 
 
   methods: {
@@ -989,73 +1068,157 @@ export default {
     },
 
 
-    setStructuredData() {
+setStructuredData() {
 
-      const existing =
-        document.getElementById(
-          "sydney-structured-data"
-        )
+  const existing =
+    document.getElementById(
+      "sydney-structured-data"
+    )
 
-      if (existing) {
-        existing.remove()
+  if (existing) {
+    existing.remove()
+  }
+
+  const script =
+    document.createElement("script")
+
+  script.id =
+    "sydney-structured-data"
+
+  script.type =
+    "application/ld+json"
+
+  script.textContent =
+    JSON.stringify({
+
+      "@context": "https://schema.org",
+
+      "@type": "LocalBusiness",
+
+      "name": "Iris & Light",
+
+      "url":
+        "https://irisandlight.ai/sydney",
+
+      "telephone":
+        "+61499242420",
+
+      "email":
+        "hello@irisandlight.ai",
+
+      "priceRange":
+        "$79-$158+",
+
+      "branchOf": {
+
+        "@type":
+          "Organization",
+
+        "name":
+          "Iris & Light",
+
+        "url":
+          "https://irisandlight.ai/"
+
+      },
+
+      "address": {
+
+        "@type":
+          "PostalAddress",
+
+        "streetAddress":
+          "Level 1, Westfield Miranda, 600 Kingsway",
+
+        "addressLocality":
+          "Miranda",
+
+        "addressRegion":
+          "NSW",
+
+        "postalCode":
+          "2228",
+
+        "addressCountry":
+          "AU"
+
+      },
+
+      "openingHoursSpecification": [
+
+        {
+
+          "@type":
+            "OpeningHoursSpecification",
+
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday"
+          ],
+
+          "opens":
+            "09:30",
+
+          "closes":
+            "18:00"
+
+        },
+
+        {
+
+          "@type":
+            "OpeningHoursSpecification",
+
+          "dayOfWeek":
+            "Friday",
+
+          "opens":
+            "09:30",
+
+          "closes":
+            "19:00"
+
+        },
+
+        {
+
+          "@type":
+            "OpeningHoursSpecification",
+
+          "dayOfWeek": [
+            "Saturday",
+            "Sunday"
+          ],
+
+          "opens":
+            "10:00",
+
+          "closes":
+            "18:00"
+
+        }
+
+      ],
+
+      "aggregateRating": {
+
+        "@type":
+          "AggregateRating",
+
+        "ratingValue":
+          "5.0",
+
+        "reviewCount":
+          "30"
+
       }
 
+    })
 
-      const script =
-        document.createElement("script")
+  document.head.appendChild(script)
 
-      script.id =
-        "sydney-structured-data"
-
-      script.type =
-        "application/ld+json"
-
-
-      script.textContent =
-        JSON.stringify({
-
-          "@context": "https://schema.org",
-
-          "@type": "LocalBusiness",
-
-          "name": "Iris & Light",
-
-          "url":
-            "https://irisandlight.ai/sydney",
-
-          "telephone":
-            "+61499242420",
-
-          "email":
-            "hello@irisandlight.ai",
-
-          "address": {
-
-            "@type": "PostalAddress",
-
-            "streetAddress":
-              "600 Kingsway",
-
-            "addressLocality":
-              "Miranda",
-
-            "addressRegion":
-              "NSW",
-
-            "postalCode":
-              "2228",
-
-            "addressCountry":
-              "AU"
-
-          }
-
-        })
-
-
-      document.head.appendChild(script)
-
-    },
+},
 
 
     /* =========================
@@ -1113,11 +1276,10 @@ export default {
       "Iris Photography Sydney | Personalised Eye Art | Iris & Light"
 
 
-    this.setMetaDescription()
-
-    this.setCanonical()
-
-    this.setStructuredData()
+this.setMetaDescription()
+this.setCanonical()
+this.setStructuredData()
+this.setFAQStructuredData()
 
   },
 
