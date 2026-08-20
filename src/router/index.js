@@ -20,7 +20,7 @@ const router = createRouter({
     },
       {
     path: "/sydney",
-    component: LandingSydneyComponent,
+  component: () => import("../components/LandingSydneyComponent.vue"),
     },
     {
       path: "/legal",
