@@ -3,6 +3,8 @@ import { createRouter, createWebHistory } from "vue-router"
 import LandingIrisAndLightComponent from '../components/LandingIrisAndLightComponent.vue';
 import LegalView from "../components/LegalView.vue"
 import MirandaComponent from "@/components/MirandaComponent.vue";
+import LandingSydneyComponent from "../components/LandingSydneyComponent.vue"
+
 
 const router = createRouter({
   history: createWebHistory(),
@@ -15,6 +17,10 @@ const router = createRouter({
     {
       path: "/miranda",
       component: MirandaComponent
+    },
+      {
+    path: "/sydney",
+    component: LandingSydneyComponent,
     },
     {
       path: "/legal",
