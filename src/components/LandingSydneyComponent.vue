@@ -731,122 +731,59 @@ export default {
          FAQ
       ========================= */
 
-      setFAQStructuredData() {
-
-  const existing =
-    document.getElementById(
-      "sydney-faq-structured-data"
-    )
-
-  if (existing) {
-    existing.remove()
-  }
-
-  const script =
-    document.createElement("script")
-
-  script.id =
-    "sydney-faq-structured-data"
-
-  script.type =
-    "application/ld+json"
-
-  script.textContent =
-    JSON.stringify({
-
-      "@context":
-        "https://schema.org",
-
-      "@type":
-        "FAQPage",
-
-      "mainEntity": [
+      faqs: [
 
         {
-          "@type": "Question",
-          "name":
-            "How much does iris photography cost in Sydney?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text":
-              "Individual sessions start from $79 for a print. Couples packages start from $158 for two eyes with digital design work, with each additional family member’s eye at $59."
-          }
+          question: "How much does iris photography cost in Sydney?",
+          answer:
+            "Individual sessions start from $79 for a print. Couples packages start from $158 for two eyes with digital design work, with each additional family member’s eye at $59."
         },
 
         {
-          "@type": "Question",
-          "name":
-            "How long does a session take?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text":
-              "Most sessions take around 10–15 minutes per person. Couples and family sessions take a little longer."
-          }
+          question: "How long does a session take?",
+          answer:
+            "Most sessions take around 10–15 minutes per person. Couples and family sessions take a little longer."
         },
 
         {
-          "@type": "Question",
-          "name":
-            "How long until I receive my artwork?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text":
-              "Digital files are typically ready the same day. Wall art and feature pieces take 7–10 business days."
-          }
+          question: "How long until I receive my artwork?",
+          answer:
+            "Digital files are typically ready the same day. Wall art and feature pieces take 7–10 business days."
         },
 
         {
-          "@type": "Question",
-          "name":
-            "Can children have their iris photographed?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text":
-              "Yes — we regularly photograph children as part of family sessions."
-          }
+          question: "Can children have their iris photographed?",
+          answer:
+            "Yes — we regularly photograph children as part of family sessions."
         },
 
         {
-          "@type": "Question",
-          "name":
-            "Do I need to remove my glasses or contact lenses?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text":
-              "Let the team know when you arrive if you wear contacts or glasses."
-          }
+          question: "Do I need to remove my glasses or contact lenses?",
+          answer:
+            "Let the team know when you arrive if you wear contacts or glasses."
         },
 
         {
-          "@type": "Question",
-          "name":
-            "Is the process safe and comfortable?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text":
-              "Yes. It is a close-up photography sitting — there is no contact with the eye itself."
-          }
+          question: "Is the process safe and comfortable?",
+          answer:
+            "Yes. It is a close-up photography sitting — there is no contact with the eye itself."
         },
 
         {
-          "@type": "Question",
-          "name":
-            "Do you take walk-ins, or do I need to book?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text":
-              "Both appointments and walk-ins are welcome, subject to availability."
-          }
+          question: "Do you take walk-ins, or do I need to book?",
+          answer:
+            "Both appointments and walk-ins are welcome, subject to availability."
         }
 
       ]
 
-    })
+    }
+  },
 
-  document.head.appendChild(script)
 
-},
-
+  /* =========================
+     METHODS
+  ========================= */
 
   methods: {
 
@@ -871,6 +808,7 @@ export default {
       })
 
       this.menuOpen = false
+
     },
 
 
@@ -886,6 +824,7 @@ export default {
       })
 
       this.menuOpen = false
+
     },
 
 
@@ -939,6 +878,8 @@ export default {
       const submitBtn =
         form.querySelector('button[type="submit"]')
 
+      if (!submitBtn) return
+
       const formData =
         new FormData(form)
 
@@ -986,6 +927,11 @@ export default {
 
       } catch (error) {
 
+        console.error(
+          "Form submission error:",
+          error
+        )
+
         alert(
           "Something went wrong. Please try again."
         )
@@ -1003,7 +949,7 @@ export default {
 
 
     /* =========================
-       SEO
+       SEO — META DESCRIPTION
     ========================= */
 
     setMetaDescription() {
@@ -1037,6 +983,10 @@ export default {
     },
 
 
+    /* =========================
+       SEO — CANONICAL
+    ========================= */
+
     setCanonical() {
 
       let canonical =
@@ -1062,163 +1012,338 @@ export default {
 
       canonical.setAttribute(
         "href",
-        "https://irisandlight.ai/sydney"
+        "https://www.irisandlight.ai/sydney"
       )
 
     },
 
 
-setStructuredData() {
+    /* =========================
+       SEO — LOCAL BUSINESS
+    ========================= */
 
-  const existing =
-    document.getElementById(
-      "sydney-structured-data"
-    )
+    setStructuredData() {
 
-  if (existing) {
-    existing.remove()
-  }
+      const existing =
+        document.getElementById(
+          "sydney-structured-data"
+        )
 
-  const script =
-    document.createElement("script")
-
-  script.id =
-    "sydney-structured-data"
-
-  script.type =
-    "application/ld+json"
-
-  script.textContent =
-    JSON.stringify({
-
-      "@context": "https://schema.org",
-
-      "@type": "LocalBusiness",
-
-      "name": "Iris & Light",
-
-      "url":
-        "https://irisandlight.ai/sydney",
-
-      "telephone":
-        "+61499242420",
-
-      "email":
-        "hello@irisandlight.ai",
-
-      "priceRange":
-        "$79-$158+",
-
-      "branchOf": {
-
-        "@type":
-          "Organization",
-
-        "name":
-          "Iris & Light",
-
-        "url":
-          "https://irisandlight.ai/"
-
-      },
-
-      "address": {
-
-        "@type":
-          "PostalAddress",
-
-        "streetAddress":
-          "Level 1, Westfield Miranda, 600 Kingsway",
-
-        "addressLocality":
-          "Miranda",
-
-        "addressRegion":
-          "NSW",
-
-        "postalCode":
-          "2228",
-
-        "addressCountry":
-          "AU"
-
-      },
-
-      "openingHoursSpecification": [
-
-        {
-
-          "@type":
-            "OpeningHoursSpecification",
-
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday"
-          ],
-
-          "opens":
-            "09:30",
-
-          "closes":
-            "18:00"
-
-        },
-
-        {
-
-          "@type":
-            "OpeningHoursSpecification",
-
-          "dayOfWeek":
-            "Friday",
-
-          "opens":
-            "09:30",
-
-          "closes":
-            "19:00"
-
-        },
-
-        {
-
-          "@type":
-            "OpeningHoursSpecification",
-
-          "dayOfWeek": [
-            "Saturday",
-            "Sunday"
-          ],
-
-          "opens":
-            "10:00",
-
-          "closes":
-            "18:00"
-
-        }
-
-      ],
-
-      "aggregateRating": {
-
-        "@type":
-          "AggregateRating",
-
-        "ratingValue":
-          "5.0",
-
-        "reviewCount":
-          "30"
-
+      if (existing) {
+        existing.remove()
       }
 
-    })
 
-  document.head.appendChild(script)
+      const script =
+        document.createElement("script")
 
-},
+      script.id =
+        "sydney-structured-data"
+
+      script.type =
+        "application/ld+json"
+
+
+      script.textContent =
+        JSON.stringify({
+
+          "@context":
+            "https://schema.org",
+
+          "@type":
+            "LocalBusiness",
+
+          "name":
+            "Iris & Light",
+
+          "url":
+            "https://www.irisandlight.ai/sydney",
+
+          "telephone":
+            "+61499242420",
+
+          "email":
+            "hello@irisandlight.ai",
+
+          "priceRange":
+            "$79-$158+",
+
+          "branchOf": {
+
+            "@type":
+              "Organization",
+
+            "name":
+              "Iris & Light",
+
+            "url":
+              "https://www.irisandlight.ai/"
+
+          },
+
+          "address": {
+
+            "@type":
+              "PostalAddress",
+
+            "streetAddress":
+              "Level 1, Westfield Miranda, 600 Kingsway",
+
+            "addressLocality":
+              "Miranda",
+
+            "addressRegion":
+              "NSW",
+
+            "postalCode":
+              "2228",
+
+            "addressCountry":
+              "AU"
+
+          },
+
+          "openingHoursSpecification": [
+
+            {
+
+              "@type":
+                "OpeningHoursSpecification",
+
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday"
+              ],
+
+              "opens":
+                "09:30",
+
+              "closes":
+                "18:00"
+
+            },
+
+            {
+
+              "@type":
+                "OpeningHoursSpecification",
+
+              "dayOfWeek":
+                "Friday",
+
+              "opens":
+                "09:30",
+
+              "closes":
+                "19:00"
+
+            },
+
+            {
+
+              "@type":
+                "OpeningHoursSpecification",
+
+              "dayOfWeek": [
+                "Saturday",
+                "Sunday"
+              ],
+
+              "opens":
+                "10:00",
+
+              "closes":
+                "18:00"
+
+            }
+
+          ],
+
+          "aggregateRating": {
+
+            "@type":
+              "AggregateRating",
+
+            "ratingValue":
+              "5.0",
+
+            "reviewCount":
+              "30"
+
+          }
+
+        })
+
+
+      document.head.appendChild(script)
+
+    },
+
+
+    /* =========================
+       SEO — FAQ STRUCTURED DATA
+    ========================= */
+
+    setFAQStructuredData() {
+
+      const existing =
+        document.getElementById(
+          "sydney-faq-structured-data"
+        )
+
+      if (existing) {
+        existing.remove()
+      }
+
+
+      const script =
+        document.createElement("script")
+
+      script.id =
+        "sydney-faq-structured-data"
+
+      script.type =
+        "application/ld+json"
+
+
+      script.textContent =
+        JSON.stringify({
+
+          "@context":
+            "https://schema.org",
+
+          "@type":
+            "FAQPage",
+
+          "mainEntity": [
+
+            {
+              "@type": "Question",
+
+              "name":
+                "How much does iris photography cost in Sydney?",
+
+              "acceptedAnswer": {
+
+                "@type": "Answer",
+
+                "text":
+                  "Individual sessions start from $79 for a print. Couples packages start from $158 for two eyes with digital design work, with each additional family member’s eye at $59."
+
+              }
+            },
+
+
+            {
+              "@type": "Question",
+
+              "name":
+                "How long does a session take?",
+
+              "acceptedAnswer": {
+
+                "@type": "Answer",
+
+                "text":
+                  "Most sessions take around 10–15 minutes per person. Couples and family sessions take a little longer."
+
+              }
+            },
+
+
+            {
+              "@type": "Question",
+
+              "name":
+                "How long until I receive my artwork?",
+
+              "acceptedAnswer": {
+
+                "@type": "Answer",
+
+                "text":
+                  "Digital files are typically ready the same day. Wall art and feature pieces take 7–10 business days."
+
+              }
+            },
+
+
+            {
+              "@type": "Question",
+
+              "name":
+                "Can children have their iris photographed?",
+
+              "acceptedAnswer": {
+
+                "@type": "Answer",
+
+                "text":
+                  "Yes — we regularly photograph children as part of family sessions."
+
+              }
+            },
+
+
+            {
+              "@type": "Question",
+
+              "name":
+                "Do I need to remove my glasses or contact lenses?",
+
+              "acceptedAnswer": {
+
+                "@type": "Answer",
+
+                "text":
+                  "Let the team know when you arrive if you wear contacts or glasses."
+
+              }
+            },
+
+
+            {
+              "@type": "Question",
+
+              "name":
+                "Is the process safe and comfortable?",
+
+              "acceptedAnswer": {
+
+                "@type": "Answer",
+
+                "text":
+                  "Yes. It is a close-up photography sitting — there is no contact with the eye itself."
+
+              }
+            },
+
+
+            {
+              "@type": "Question",
+
+              "name":
+                "Do you take walk-ins, or do I need to book?",
+
+              "acceptedAnswer": {
+
+                "@type": "Answer",
+
+                "text":
+                  "Both appointments and walk-ins are welcome, subject to availability."
+
+              }
+            }
+
+          ]
+
+        })
+
+
+      document.head.appendChild(script)
+
+    },
 
 
     /* =========================
@@ -1227,13 +1352,23 @@ setStructuredData() {
 
     removeStructuredData() {
 
-      const script =
+      const structuredData =
         document.getElementById(
           "sydney-structured-data"
         )
 
-      if (script) {
-        script.remove()
+      if (structuredData) {
+        structuredData.remove()
+      }
+
+
+      const faqStructuredData =
+        document.getElementById(
+          "sydney-faq-structured-data"
+        )
+
+      if (faqStructuredData) {
+        faqStructuredData.remove()
       }
 
     }
@@ -1253,9 +1388,9 @@ setStructuredData() {
     )
 
 
-    /*
-      Preload hero
-    */
+    /* =========================
+       PRELOAD HERO
+    ========================= */
 
     if (this.heroImage) {
 
@@ -1268,18 +1403,21 @@ setStructuredData() {
     }
 
 
-    /*
-      SEO
-    */
+    /* =========================
+       SEO
+    ========================= */
 
     document.title =
       "Iris Photography Sydney | Personalised Eye Art | Iris & Light"
 
 
-this.setMetaDescription()
-this.setCanonical()
-this.setStructuredData()
-this.setFAQStructuredData()
+    this.setMetaDescription()
+
+    this.setCanonical()
+
+    this.setStructuredData()
+
+    this.setFAQStructuredData()
 
   },
 
