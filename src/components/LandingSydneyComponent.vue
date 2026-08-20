@@ -74,10 +74,10 @@
     <!-- HERO -->
     <header class="header sydney-hero">
 
-<div
-  class="header-bg"
-  :style="{ backgroundImage: `url(${heroImage})` }"
-></div>
+      <div
+        class="header-bg"
+        :style="{ backgroundImage: `url(${heroImage})` }"
+      ></div>
 
       <div class="overlay">
 
@@ -117,13 +117,13 @@
 
           </div>
 
-          <div  class="hero-proof">
+          <div class="hero-proof">
             <p>
-            ★★★★★ 5.0 from 30 Google reviews
-            <br>
-            Level 1, Westfield Miranda
-          </p>
-        </div>
+              ★★★★★ 5.0 from 30 Google reviews
+              <br>
+              Level 1, Westfield Miranda
+            </p>
+          </div>
 
         </div>
 
@@ -191,11 +191,12 @@
 
       <div class="sydney-examples">
 
+        <!-- INDIVIDUAL -->
         <article class="sydney-example">
 
           <div class="sydney-example-image">
             <img
-              src="../assets/sample1-sydney.jpg"
+              :src="singleArtwork"
               alt="Single iris portrait artwork"
               loading="lazy"
             >
@@ -219,11 +220,12 @@
         </article>
 
 
+        <!-- COUPLES -->
         <article class="sydney-example reverse">
 
           <div class="sydney-example-image">
             <img
-              src="../assets/foto6-sydney.jpg"
+              :src="couplesArtwork"
               alt="Couples iris artwork"
               loading="lazy"
             >
@@ -247,11 +249,12 @@
         </article>
 
 
+        <!-- FAMILY -->
         <article class="sydney-example">
 
           <div class="sydney-example-image">
             <img
-              src="../assets/foto4-sydney.jpg"
+              :src="familyArtwork"
               alt="Family iris artwork"
               loading="lazy"
             >
@@ -300,6 +303,7 @@
           <img
             :src="item.image"
             :alt="item.title"
+            loading="lazy"
           >
 
           <div class="sydney-price-content">
@@ -426,14 +430,18 @@
       <div class="sydney-location">
 
         <div class="sydney-location-image">
-      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1653.1670186606373!2d151.09958153105515!3d-34.035301546631395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12c79b5339a089%3A0xcecbac0ed1c0d4d6!2sWestfield%20Miranda!5e0!3m2!1ses!2ses!4v1783678156730!5m2!1ses!2ses" 
-      width="100%"
-      height="600"
-      style="border:0;
-      " allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+
+          <iframe
+            class="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1653.1670186606373!2d151.09958153105515!3d-34.035301546631395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12c79b5339a089%3A0xcecbac0ed1c0d4d6!2sWestfield%20Miranda!5e0!3m2!1ses!2ses!4v1783678156730!5m2!1ses!2ses"
+            width="100%"
+            height="600"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+
         </div>
 
         <div class="sydney-location-info">
@@ -555,7 +563,6 @@
   <BookSessionBtn />
 
 </template>
-
 <script>
 import BookSessionBtn from "./BookSessionBtn.vue"
 
@@ -564,9 +571,6 @@ import BookSessionBtn from "./BookSessionBtn.vue"
 // =========================================================
 
 import sydneyHero from "../assets/iris-photography-sydney-hero.webp"
-import sydneyProcess from "../assets/iris-photography-sydney-process-section.webp"
-import sydneyTestimonials from "../assets/iris-photography-sydney-testimonials-section.webp"
-import sydneyLocation from "../assets/iris-photography-sydney-studio-location.webp"
 
 import sydneySingleTile from "../assets/iris-photography-sydney-single-tile.webp"
 import sydneyCouplesTile from "../assets/iris-photography-sydney-couples-tile.webp"
@@ -614,12 +618,6 @@ export default {
       // =======================================================
 
       heroImage: sydneyHero,
-
-      processImage: sydneyProcess,
-
-      testimonialsImage: sydneyTestimonials,
-
-      locationImage: sydneyLocation,
 
       singleTile: sydneySingleTile,
 
