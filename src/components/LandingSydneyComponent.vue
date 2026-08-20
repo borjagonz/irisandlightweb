@@ -74,10 +74,10 @@
     <!-- HERO -->
     <header class="header sydney-hero">
 
-      <div
-        class="header-bg"
-
-      ></div>
+<div
+  class="header-bg"
+  :style="{ backgroundImage: `url(${heroImage})` }"
+></div>
 
       <div class="overlay">
 
@@ -559,7 +559,10 @@
 <script>
 import BookSessionBtn from "./BookSessionBtn.vue"
 
-// Imágenes específicas de Sydney
+// =========================================================
+// IMÁGENES ESPECÍFICAS DE SYDNEY
+// =========================================================
+
 import sydneyHero from "../assets/iris-photography-sydney-hero.webp"
 import sydneyProcess from "../assets/iris-photography-sydney-process-section.webp"
 import sydneyTestimonials from "../assets/iris-photography-sydney-testimonials-section.webp"
@@ -580,20 +583,25 @@ export default {
     BookSessionBtn
   },
 
+
+  // =========================================================
+  // DATA
+  // =========================================================
+
   data() {
     return {
 
-      /* =========================
-         NAVBAR
-      ========================= */
+      // =======================================================
+      // NAVBAR
+      // =======================================================
 
       isScrolled: false,
       menuOpen: false,
 
 
-      /* =========================
-         CONTACT FORM
-      ========================= */
+      // =======================================================
+      // CONTACT FORM
+      // =======================================================
 
       name: "",
       email: "",
@@ -601,9 +609,9 @@ export default {
       message: "",
 
 
-      /* =========================
-         SYDNEY IMAGES
-      ========================= */
+      // =======================================================
+      // SYDNEY IMAGES
+      // =======================================================
 
       heroImage: sydneyHero,
 
@@ -626,9 +634,9 @@ export default {
       familyArtwork: sydneyFamilyArtwork,
 
 
-      /* =========================
-         PRICING
-      ========================= */
+      // =======================================================
+      // PRICING
+      // =======================================================
 
       priceItems: [
 
@@ -674,9 +682,9 @@ export default {
       ],
 
 
-      /* =========================
-         ARTWORK OPTIONS
-      ========================= */
+      // =======================================================
+      // ARTWORK OPTIONS
+      // =======================================================
 
       options: [
 
@@ -703,9 +711,9 @@ export default {
       ],
 
 
-      /* =========================
-         TESTIMONIALS
-      ========================= */
+      // =======================================================
+      // TESTIMONIALS
+      // =======================================================
 
       testimonials: [
 
@@ -727,9 +735,9 @@ export default {
       ],
 
 
-      /* =========================
-         FAQ
-      ========================= */
+      // =======================================================
+      // FAQ
+      // =======================================================
 
       faqs: [
 
@@ -781,15 +789,15 @@ export default {
   },
 
 
-  /* =========================
-     METHODS
-  ========================= */
+  // =========================================================
+  // METHODS
+  // =========================================================
 
   methods: {
 
-    /* =========================
-       NAVIGATION
-    ========================= */
+    // =======================================================
+    // NAVIGATION
+    // =======================================================
 
     scrollToSection(id) {
 
@@ -828,9 +836,9 @@ export default {
     },
 
 
-    /* =========================
-       SCROLL
-    ========================= */
+    // =======================================================
+    // SCROLL
+    // =======================================================
 
     handleScroll() {
 
@@ -839,9 +847,9 @@ export default {
     },
 
 
-    /* =========================
-       MOBILE MENU
-    ========================= */
+    // =======================================================
+    // MOBILE MENU
+    // =======================================================
 
     toggleMenu() {
 
@@ -850,33 +858,39 @@ export default {
     },
 
 
-    /* =========================
-       BOOKING TRACKING
-    ========================= */
+    // =======================================================
+    // BOOKING TRACKING
+    // =======================================================
 
     trackBooking() {
 
       if (window.fbq) {
 
-        window.fbq("track", "Lead")
+        window.fbq(
+          "track",
+          "Lead"
+        )
 
       }
 
     },
 
 
-    /* =========================
-       CONTACT FORM
-    ========================= */
+    // =======================================================
+    // CONTACT FORM
+    // =======================================================
 
     async submitForm() {
 
-      const form = this.$refs.contactForm
+      const form =
+        this.$refs.contactForm
 
       if (!form) return
 
       const submitBtn =
-        form.querySelector('button[type="submit"]')
+        form.querySelector(
+          'button[type="submit"]'
+        )
 
       if (!submitBtn) return
 
@@ -886,20 +900,23 @@ export default {
       const originalText =
         submitBtn.textContent
 
-      submitBtn.textContent = "Sending..."
+      submitBtn.textContent =
+        "Sending..."
 
-      submitBtn.disabled = true
+      submitBtn.disabled =
+        true
 
 
       try {
 
-        const response = await fetch(
-          "https://api.web3forms.com/submit",
-          {
-            method: "POST",
-            body: formData
-          }
-        )
+        const response =
+          await fetch(
+            "https://api.web3forms.com/submit",
+            {
+              method: "POST",
+              body: formData
+            }
+          )
 
 
         const data =
@@ -941,16 +958,17 @@ export default {
         submitBtn.textContent =
           originalText
 
-        submitBtn.disabled = false
+        submitBtn.disabled =
+          false
 
       }
 
     },
 
 
-    /* =========================
-       SEO — META DESCRIPTION
-    ========================= */
+    // =======================================================
+    // SEO — META DESCRIPTION
+    // =======================================================
 
     setMetaDescription() {
 
@@ -983,9 +1001,9 @@ export default {
     },
 
 
-    /* =========================
-       SEO — CANONICAL
-    ========================= */
+    // =======================================================
+    // SEO — CANONICAL
+    // =======================================================
 
     setCanonical() {
 
@@ -1018,9 +1036,9 @@ export default {
     },
 
 
-    /* =========================
-       SEO — LOCAL BUSINESS
-    ========================= */
+    // =======================================================
+    // SEO — LOCAL BUSINESS STRUCTURED DATA
+    // =======================================================
 
     setStructuredData() {
 
@@ -1106,7 +1124,6 @@ export default {
           "openingHoursSpecification": [
 
             {
-
               "@type":
                 "OpeningHoursSpecification",
 
@@ -1121,11 +1138,9 @@ export default {
 
               "closes":
                 "18:00"
-
             },
 
             {
-
               "@type":
                 "OpeningHoursSpecification",
 
@@ -1137,11 +1152,9 @@ export default {
 
               "closes":
                 "19:00"
-
             },
 
             {
-
               "@type":
                 "OpeningHoursSpecification",
 
@@ -1155,7 +1168,6 @@ export default {
 
               "closes":
                 "18:00"
-
             }
 
           ],
@@ -1176,14 +1188,16 @@ export default {
         })
 
 
-      document.head.appendChild(script)
+      document.head.appendChild(
+        script
+      )
 
     },
 
 
-    /* =========================
-       SEO — FAQ STRUCTURED DATA
-    ========================= */
+    // =======================================================
+    // SEO — FAQ STRUCTURED DATA
+    // =======================================================
 
     setFAQStructuredData() {
 
@@ -1219,121 +1233,136 @@ export default {
           "mainEntity": [
 
             {
-              "@type": "Question",
+              "@type":
+                "Question",
 
               "name":
                 "How much does iris photography cost in Sydney?",
 
               "acceptedAnswer": {
 
-                "@type": "Answer",
+                "@type":
+                  "Answer",
 
                 "text":
                   "Individual sessions start from $79 for a print. Couples packages start from $158 for two eyes with digital design work, with each additional family member’s eye at $59."
 
               }
+
             },
 
-
             {
-              "@type": "Question",
+              "@type":
+                "Question",
 
               "name":
                 "How long does a session take?",
 
               "acceptedAnswer": {
 
-                "@type": "Answer",
+                "@type":
+                  "Answer",
 
                 "text":
                   "Most sessions take around 10–15 minutes per person. Couples and family sessions take a little longer."
 
               }
+
             },
 
-
             {
-              "@type": "Question",
+              "@type":
+                "Question",
 
               "name":
                 "How long until I receive my artwork?",
 
               "acceptedAnswer": {
 
-                "@type": "Answer",
+                "@type":
+                  "Answer",
 
                 "text":
                   "Digital files are typically ready the same day. Wall art and feature pieces take 7–10 business days."
 
               }
+
             },
 
-
             {
-              "@type": "Question",
+              "@type":
+                "Question",
 
               "name":
                 "Can children have their iris photographed?",
 
               "acceptedAnswer": {
 
-                "@type": "Answer",
+                "@type":
+                  "Answer",
 
                 "text":
                   "Yes — we regularly photograph children as part of family sessions."
 
               }
+
             },
 
-
             {
-              "@type": "Question",
+              "@type":
+                "Question",
 
               "name":
                 "Do I need to remove my glasses or contact lenses?",
 
               "acceptedAnswer": {
 
-                "@type": "Answer",
+                "@type":
+                  "Answer",
 
                 "text":
                   "Let the team know when you arrive if you wear contacts or glasses."
 
               }
+
             },
 
-
             {
-              "@type": "Question",
+              "@type":
+                "Question",
 
               "name":
                 "Is the process safe and comfortable?",
 
               "acceptedAnswer": {
 
-                "@type": "Answer",
+                "@type":
+                  "Answer",
 
                 "text":
                   "Yes. It is a close-up photography sitting — there is no contact with the eye itself."
 
               }
+
             },
 
-
             {
-              "@type": "Question",
+              "@type":
+                "Question",
 
               "name":
                 "Do you take walk-ins, or do I need to book?",
 
               "acceptedAnswer": {
 
-                "@type": "Answer",
+                "@type":
+                  "Answer",
 
                 "text":
                   "Both appointments and walk-ins are welcome, subject to availability."
 
               }
+
             }
 
           ]
@@ -1341,14 +1370,16 @@ export default {
         })
 
 
-      document.head.appendChild(script)
+      document.head.appendChild(
+        script
+      )
 
     },
 
 
-    /* =========================
-       REMOVE SEO
-    ========================= */
+    // =======================================================
+    // REMOVE SEO STRUCTURED DATA
+    // =======================================================
 
     removeStructuredData() {
 
@@ -1376,21 +1407,29 @@ export default {
   },
 
 
-  /* =========================
-     MOUNTED
-  ========================= */
+  // =========================================================
+  // MOUNTED
+  // =========================================================
 
   mounted() {
+
+    // -------------------------------------------------------
+    // SCROLL LISTENER
+    // -------------------------------------------------------
 
     window.addEventListener(
       "scroll",
       this.handleScroll
     )
 
+    // Ejecutamos una vez al cargar
+    // para detectar correctamente el estado inicial
+    this.handleScroll()
 
-    /* =========================
-       PRELOAD HERO
-    ========================= */
+
+    // -------------------------------------------------------
+    // PRELOAD HERO
+    // -------------------------------------------------------
 
     if (this.heroImage) {
 
@@ -1403,9 +1442,9 @@ export default {
     }
 
 
-    /* =========================
-       SEO
-    ========================= */
+    // -------------------------------------------------------
+    // SEO
+    // -------------------------------------------------------
 
     document.title =
       "Iris Photography Sydney | Personalised Eye Art | Iris & Light"
@@ -1422,9 +1461,9 @@ export default {
   },
 
 
-  /* =========================
-     BEFORE UNMOUNT
-  ========================= */
+  // =========================================================
+  // BEFORE UNMOUNT
+  // =========================================================
 
   beforeUnmount() {
 
@@ -1432,7 +1471,6 @@ export default {
       "scroll",
       this.handleScroll
     )
-
 
     this.removeStructuredData()
 
@@ -1569,7 +1607,6 @@ export default {
   position: absolute;
 
   inset: 0;
-  background-image: url(../assets/hero-irisandlightSydney.jpg);
   opacity: 0.8;
   background-position: center;
   background-size: cover;
