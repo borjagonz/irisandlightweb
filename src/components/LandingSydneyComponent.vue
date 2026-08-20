@@ -576,6 +576,7 @@ import sydneySingleArtwork from "../assets/iris-photography-sydney-single-tile-d
 import sydneyCouplesArtwork from "../assets/iris-photography-sydney-couples-artwork.webp"
 import sydneyFamilyArtwork from "../assets/iris-photography-sydney-family-artwork.webp"
 
+import { useHead } from "@unhead/vue"
 
 export default {
 
@@ -583,6 +584,28 @@ export default {
     BookSessionBtn
   },
 
+  setup() {
+
+    useHead({
+      title: "Iris Photography Sydney | Personalised Eye Art | Iris & Light",
+
+      meta: [
+        {
+          name: "description",
+          content:
+            "Iris & Light creates high-resolution iris photography and personalised eye artwork for individuals, couples and families in Sydney. Visit our Miranda studio."
+        }
+      ],
+
+      link: [
+        {
+          rel: "canonical",
+          href: "https://irisandlight.ai/sydney"
+        }
+      ]
+    })
+
+  },
 
   // =========================================================
   // DATA
