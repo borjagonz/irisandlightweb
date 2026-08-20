@@ -4,7 +4,7 @@
     <!-- NAVBAR -->
     <nav :class="['navbar', { scrolled: isScrolled }]">
 
-      <router-link to="/">
+      <router-link to="/sydney">
         <img
           class="logo"
           src="../assets/IrisAndLight-logo-white.png"
@@ -61,7 +61,7 @@
 
         <a
           class="booklink"
-          href="/#booking"
+    href="https://app.acuityscheduling.com/schedule/8b7f3d65" target="_blank" rel="noopener"
         >
           Book a Session
         </a>
@@ -103,7 +103,7 @@
 
             <a
               class="herobtn"
-              href="/#booking"
+    href="https://app.acuityscheduling.com/schedule/8b7f3d65" target="_blank" rel="noopener"
             >
               Book Your Iris Session
             </a>
@@ -505,7 +505,7 @@
 
         <a
           class="herobtn"
-          href="/#booking"
+    href="https://app.acuityscheduling.com/schedule/8b7f3d65" target="_blank" rel="noopener"
         >
           Book Your Iris Session
         </a>
@@ -565,10 +565,6 @@
 </template>
 <script>
 import BookSessionBtn from "./BookSessionBtn.vue"
-
-// =========================================================
-// IMÁGENES ESPECÍFICAS DE SYDNEY
-// =========================================================
 
 import sydneyHero from "../assets/iris-photography-sydney-hero.webp"
 
@@ -742,7 +738,7 @@ export default {
         {
           question: "How much does iris photography cost in Sydney?",
           answer:
-            "Individual sessions start from $79 for a print. Couples packages start from $158 for two eyes with digital design work, with each additional family member’s eye at $59."
+            "Individual sessions start from $79 for a digital file. Couples packages start from $158 for two eyes with digital design work, with each additional family member’s eye at $59."
         },
 
         {
@@ -810,22 +806,6 @@ export default {
 
       window.scrollTo({
         top: y,
-        behavior: "smooth"
-      })
-
-      this.menuOpen = false
-
-    },
-
-
-    scrollToTopSection(id) {
-
-      const section = document.getElementById(id)
-
-      if (!section) return
-
-      window.scrollTo({
-        top: section.offsetTop - 100,
         behavior: "smooth"
       })
 
@@ -1028,7 +1008,7 @@ export default {
 
       canonical.setAttribute(
         "href",
-        "https://www.irisandlight.ai/sydney"
+        "https://irisandlight.ai/sydney"
       )
 
     },
@@ -1063,61 +1043,27 @@ export default {
       script.textContent =
         JSON.stringify({
 
-          "@context":
-            "https://schema.org",
-
-          "@type":
-            "LocalBusiness",
-
-          "name":
-            "Iris & Light",
-
-          "url":
-            "https://www.irisandlight.ai/sydney",
-
-          "telephone":
-            "+61499242420",
-
-          "email":
-            "hello@irisandlight.ai",
-
-          "priceRange":
-            "$79-$158+",
-
-          "branchOf": {
-
-            "@type":
-              "Organization",
-
-            "name":
-              "Iris & Light",
-
-            "url":
-              "https://www.irisandlight.ai/"
-
-          },
-
-          "address": {
-
-            "@type":
-              "PostalAddress",
-
-            "streetAddress":
-              "Level 1, Westfield Miranda, 600 Kingsway",
-
-            "addressLocality":
-              "Miranda",
-
-            "addressRegion":
-              "NSW",
-
-            "postalCode":
-              "2228",
-
-            "addressCountry":
-              "AU"
-
-          },
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://irisandlight.ai/sydney#localbusiness",
+  "name": "Iris & Light — Miranda, Sydney",
+  "url": "https://irisandlight.ai/sydney",
+  "telephone": "+61499242420",
+  "email": "hello@irisandlight.ai",
+  "priceRange": "$79-$420+",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Level 1, Westfield Miranda, 600 Kingsway",
+    "addressLocality": "Miranda",
+    "addressRegion": "NSW",
+    "postalCode": "2228",
+    "addressCountry": "AU"
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Iris & Light",
+    "url": "https://irisandlight.ai/"
+  },
 
           "openingHoursSpecification": [
 
@@ -1243,7 +1189,7 @@ export default {
                   "Answer",
 
                 "text":
-                  "Individual sessions start from $79 for a print. Couples packages start from $158 for two eyes with digital design work, with each additional family member’s eye at $59."
+                  "Individual sessions start from $79 for a digital file. Couples packages start from $158 for two eyes with digital design work, with each additional family member’s eye at $59."
 
               }
 
@@ -1443,14 +1389,6 @@ export default {
     // -------------------------------------------------------
     // SEO
     // -------------------------------------------------------
-
-    document.title =
-      "Iris Photography Sydney | Personalised Eye Art | Iris & Light"
-
-
-    this.setMetaDescription()
-
-    this.setCanonical()
 
     this.setStructuredData()
 
@@ -2271,13 +2209,11 @@ export default {
   margin: 0 auto;
 }
 
-.sydney-location-image img {
+.sydney-location-image .map {
   width: 100%;
-
-  height: 500px;
-
-  object-fit: cover;
-
+  height: 600px;
+  display: block;
+  border: 0;
   border-radius: 40px;
 }
 
@@ -2735,7 +2671,7 @@ export default {
       60px 30px 0;
   }
 
-  .sydney-location-image img {
+  .sydney-location-image .map {
     height: 350px;
   }
 
@@ -2781,7 +2717,7 @@ export default {
     font-size: 32px;
 
     margin:
-      160px 30px 10px;
+      100px 30px 10px;
   }
 
   .hero h3 {

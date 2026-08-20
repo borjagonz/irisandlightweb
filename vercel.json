@@ -1,8 +1,16 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/sydney",
+      "destination": "/sydney.html"
+    },
+    {
+      "source": "/miranda",
+      "destination": "/miranda.html"
+    },
+    {
+      "source": "/legal",
+      "destination": "/legal.html"
     }
   ]
 }

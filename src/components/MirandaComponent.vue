@@ -2,8 +2,13 @@
     <div class="miranda-page">
 
 <header class="topbar">
-    <img class="logo" src="../assets/IrisAndLight-logo-white.png" alt="">
-  <a class="btn btn-ghost" href="https://app.acuityscheduling.com/schedule/8b7f3d65" target="_blank" rel="noopener">Book a session</a>
+      <router-link to="/miranda">
+        <img
+          class="logo"
+          src="../assets/IrisAndLight-logo-white.png"
+          alt="Iris & Light"
+        >
+      </router-link>  <a class="btn btn-ghost" href="https://app.acuityscheduling.com/schedule/8b7f3d65" target="_blank" rel="noopener">Book a session</a>
 </header>
 
 <main id="main">

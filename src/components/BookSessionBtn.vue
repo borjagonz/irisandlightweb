@@ -4,6 +4,8 @@
     v-if="isVisible"
     to="#booking"
     class="whatsapp-button"
+    href="https://app.acuityscheduling.com/schedule/8b7f3d65" target="_blank" rel="noopener"
+
   >
     Book your session now
   </router-link>
