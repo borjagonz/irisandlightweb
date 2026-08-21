@@ -447,9 +447,9 @@
 
         <div class="sydney-location-info">
 
-          <h2>
+          <h3>
             Iris & Light — Miranda, Sydney
-          </h2>
+          </h3>
 
           <p>
             <strong>Address</strong><br>
@@ -2184,7 +2184,7 @@ useHead({
   padding: 20px;
 }
 
-.sydney-location-info h2 {
+.sydney-location-info h3 {
   font-size: 36px;
 
   margin-bottom: 30px;
