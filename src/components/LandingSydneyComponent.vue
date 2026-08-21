@@ -468,10 +468,9 @@
 
           <p>
             <strong>Hours</strong><br>
-            Mon, Tue & Wed 9:30am–6:00pm<br>
-            Fri 9:30am–7:00pm<br>
-            Sat & Sun 10:00am–6:00pm<br>
-            Closed Thursday
+Mon-Friday 9:30am - 6pm <br>
+Sat - Sun 10am -6pm <br>
+Thursday - Open for late night shopping
           </p>
 
           <a
@@ -587,7 +586,7 @@ export default {
   setup() {
 
     useHead({
-      title: "Iris Photography Sydney | Personalised Eye Art | Iris & Light",
+      title: "Iris Photography Sydney | Iris & Light",
 
       meta: [
         {
@@ -1090,52 +1089,27 @@ export default {
 
           "openingHoursSpecification": [
 
-            {
-              "@type":
-                "OpeningHoursSpecification",
+  {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Friday"
+    ],
+    "opens": "09:30",
+    "closes": "18:00"
+  },
 
-              "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday"
-              ],
-
-              "opens":
-                "09:30",
-
-              "closes":
-                "18:00"
-            },
-
-            {
-              "@type":
-                "OpeningHoursSpecification",
-
-              "dayOfWeek":
-                "Friday",
-
-              "opens":
-                "09:30",
-
-              "closes":
-                "19:00"
-            },
-
-            {
-              "@type":
-                "OpeningHoursSpecification",
-
-              "dayOfWeek": [
-                "Saturday",
-                "Sunday"
-              ],
-
-              "opens":
-                "10:00",
-
-              "closes":
-                "18:00"
-            }
+  {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "10:00",
+    "closes": "18:00"
+  }
 
           ],
 

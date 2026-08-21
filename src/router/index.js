@@ -23,8 +23,10 @@ export const routes = [
 
     meta: {
       title: "Iris & Light",
+
       description:
         "Iris & Light creates high-resolution iris photography and personalised eye artwork.",
+
       canonical:
         "https://irisandlight.ai/"
     }
@@ -100,6 +102,10 @@ const router = createRouter({
   routes,
 
 
+  // ====================================================
+  // SCROLL BEHAVIOR
+  // ====================================================
+
   scrollBehavior(to, from, savedPosition) {
 
     if (savedPosition) {
@@ -134,96 +140,10 @@ const router = createRouter({
 
 
 // ======================================================
-// SEO — CLIENT SIDE NAVIGATION
+// META PIXEL — CLIENT SIDE NAVIGATION
 // ======================================================
 
-router.afterEach((to) => {
-
-  // During SSG there is no document.
-  if (typeof document === "undefined") {
-    return
-  }
-
-
-  // TITLE
-
-  document.title =
-    to.meta.title || "Iris & Light"
-
-
-  // META DESCRIPTION
-
-  const description =
-    to.meta.description
-
-  if (description) {
-
-    let metaDescription =
-      document.querySelector(
-        'meta[name="description"]'
-      )
-
-    if (!metaDescription) {
-
-      metaDescription =
-        document.createElement("meta")
-
-      metaDescription.setAttribute(
-        "name",
-        "description"
-      )
-
-      document.head.appendChild(
-        metaDescription
-      )
-
-    }
-
-    metaDescription.setAttribute(
-      "content",
-      description
-    )
-
-  }
-
-
-  // CANONICAL
-
-  const canonical =
-    to.meta.canonical
-
-  if (canonical) {
-
-    let canonicalLink =
-      document.querySelector(
-        'link[rel="canonical"]'
-      )
-
-    if (!canonicalLink) {
-
-      canonicalLink =
-        document.createElement("link")
-
-      canonicalLink.setAttribute(
-        "rel",
-        "canonical"
-      )
-
-      document.head.appendChild(
-        canonicalLink
-      )
-
-    }
-
-    canonicalLink.setAttribute(
-      "href",
-      canonical
-    )
-
-  }
-
-
-  // META PIXEL
+router.afterEach(() => {
 
   if (
     typeof window !== "undefined" &&
