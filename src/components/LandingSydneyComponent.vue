@@ -118,10 +118,11 @@
           </div>
 
           <div class="hero-proof">
-            <p>
-              ★★★★★ 5.0 from 30 Google reviews
-              <br>
-              Level 1, Westfield Miranda
+            <p class="reviews">
+              <span class="stars">★★★★★</span> 5.0 from +40 Google reviews
+            </p>
+            <p class="level1">             
+              📍 Level 1, Westfield Miranda
             </p>
           </div>
 
@@ -135,7 +136,7 @@
     <!-- PROCESS -->
     <section id="process" class="process">
 
-      <h1>THREE STEPS, ONE AFTERNOON</h1>
+      <h2>THREE STEPS, ONE AFTERNOON</h2>
 
       <p>
         A personalised photographic art experience centred
@@ -180,7 +181,7 @@
     <!-- EXAMPLES -->
     <section id="examples" class="samples">
 
-      <h1>INDIVIDUAL, COUPLES & FAMILY ARTWORK</h1>
+      <h2>INDIVIDUAL, COUPLES & FAMILY ARTWORK</h2>
 
       <p>
         Every piece here is from a real sitting in our Sydney studio —
@@ -285,7 +286,7 @@
     <!-- PRICING -->
     <section id="pricing" class="prices">
 
-      <h1>IRIS PHOTOGRAPHY PRICES</h1>
+      <h2>IRIS PHOTOGRAPHY PRICES</h2>
 
       <p>
         Every package includes your capture session,
@@ -342,7 +343,7 @@
     <!-- OPTIONS -->
     <section class="sydney-options">
 
-      <h1>WAYS TO BRING YOUR ARTWORK HOME</h1>
+      <h2>WAYS TO BRING YOUR ARTWORK HOME</h2>
 
       <p>
         From a digital file you can share instantly,
@@ -368,7 +369,7 @@
     <!-- TESTIMONIALS -->
     <section class="sydney-testimonials">
 
-      <h1>WHAT FAMILIES ARE SAYING</h1>
+      <h2>WHAT FAMILIES ARE SAYING</h2>
 
       <div class="testimonial-grid">
 
@@ -400,7 +401,7 @@
     <!-- FAQ -->
     <section id="faq" class="sydney-faq">
 
-      <h1>FREQUENTLY ASKED QUESTIONS</h1>
+      <h2>FREQUENTLY ASKED QUESTIONS</h2>
 
       <div class="faq-list">
 
@@ -425,7 +426,7 @@
     <!-- LOCATION -->
     <section id="location" class="location">
 
-      <h1>VISIT OUR SYDNEY STUDIO</h1>
+      <h2>VISIT OUR SYDNEY STUDIO</h2>
 
       <div class="sydney-location">
 
@@ -492,7 +493,7 @@ Thursday - Open for late night shopping
     <!-- FINAL CTA -->
     <section class="sydney-final-cta">
 
-      <h1>BOOK YOUR IRIS SESSION IN SYDNEY</h1>
+      <h2>BOOK YOUR IRIS SESSION IN SYDNEY</h2>
 
       <p>
         Singles, couples, families and friends —
@@ -585,24 +586,55 @@ export default {
 
   setup() {
 
-    useHead({
-      title: "Iris Photography Sydney | Iris & Light",
+useHead({
+  title: "Iris Photography Sydney | Personalised Eye Art | Iris & Light",
 
-      meta: [
-        {
-          name: "description",
-          content:
-            "Iris & Light creates high-resolution iris photography and personalised eye artwork for individuals, couples and families in Sydney. Visit our Miranda studio."
-        }
-      ],
+  meta: [
+    {
+      name: "description",
+      content:
+        "Iris & Light creates high-resolution iris photography and personalised eye artwork for individuals, couples and families in Sydney. Visit our Miranda studio."
+    },
+    {
+      name: "robots",
+      content: "index, follow"
+    },
 
-      link: [
-        {
-          rel: "canonical",
-          href: "https://irisandlight.ai/sydney"
-        }
-      ]
-    })
+    {
+      property: "og:title",
+      content: "Iris Photography Sydney | Iris & Light"
+    },
+    {
+      property: "og:description",
+      content:
+        "High-resolution iris photography and personalised eye artwork for individuals, couples and families at our Sydney studio in Miranda."
+    },
+    {
+      property: "og:type",
+      content: "website"
+    },
+    {
+      property: "og:url",
+      content: "https://irisandlight.ai/sydney"
+    },
+    {
+      property: "og:image",
+      content:
+        "https://irisandlight.ai/iris-photography-sydney-hero.webp"
+    },
+    {
+      property: "og:site_name",
+      content: "Iris & Light"
+    }
+  ],
+
+  link: [
+    {
+      rel: "canonical",
+      href: "https://irisandlight.ai/sydney"
+    }
+  ]
+})
 
   },
 
@@ -967,76 +999,6 @@ export default {
 
 
     // =======================================================
-    // SEO — META DESCRIPTION
-    // =======================================================
-
-    setMetaDescription() {
-
-      let meta =
-        document.querySelector(
-          'meta[name="description"]'
-        )
-
-
-      if (!meta) {
-
-        meta =
-          document.createElement("meta")
-
-        meta.setAttribute(
-          "name",
-          "description"
-        )
-
-        document.head.appendChild(meta)
-
-      }
-
-
-      meta.setAttribute(
-        "content",
-        "Iris & Light creates high-resolution iris photography and personalised eye artwork for individuals, couples and families in Sydney. Visit our Miranda studio."
-      )
-
-    },
-
-
-    // =======================================================
-    // SEO — CANONICAL
-    // =======================================================
-
-    setCanonical() {
-
-      let canonical =
-        document.querySelector(
-          'link[rel="canonical"]'
-        )
-
-
-      if (!canonical) {
-
-        canonical =
-          document.createElement("link")
-
-        canonical.setAttribute(
-          "rel",
-          "canonical"
-        )
-
-        document.head.appendChild(canonical)
-
-      }
-
-
-      canonical.setAttribute(
-        "href",
-        "https://irisandlight.ai/sydney"
-      )
-
-    },
-
-
-    // =======================================================
     // SEO — LOCAL BUSINESS STRUCTURED DATA
     // =======================================================
 
@@ -1109,22 +1071,10 @@ export default {
     ],
     "opens": "10:00",
     "closes": "18:00"
-  }
+  },
+
 
           ],
-
-          "aggregateRating": {
-
-            "@type":
-              "AggregateRating",
-
-            "ratingValue":
-              "5.0",
-
-            "reviewCount":
-              "30"
-
-          }
 
         })
 
@@ -1680,6 +1630,22 @@ export default {
   transform: scale(1.04);
 }
 
+.reviews {
+  background-color: rgba(0, 0, 0, 0.3);
+  max-width: 320px;
+  padding: 6px 10px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  border-radius: 50px
+}
+
+.stars {
+  color: rgb(228, 169, 43);
+}
+
+.level1 {
+  font-weight: 900;
+}
 
 /* =========================================================
    PROCESS
@@ -1693,7 +1659,7 @@ export default {
   background: white;
 }
 
-.process h1 {
+.process h2 {
   font-size: 48px;
   font-weight: 900;
 }
@@ -1774,7 +1740,7 @@ export default {
   margin: 50px;
 }
 
-.samples > h1 {
+.samples > h2 {
   text-align: center;
 
   font-size: 48px;
@@ -1886,7 +1852,7 @@ export default {
   text-align: center;
 }
 
-.prices > h1 {
+.prices > h2 {
   font-size: 48px;
   font-weight: 900;
 }
@@ -2006,7 +1972,7 @@ export default {
   text-align: center;
 }
 
-.sydney-options h1 {
+.sydney-options h2 {
   font-size: 48px;
 
   font-weight: 900;
@@ -2058,7 +2024,7 @@ export default {
   text-align: center;
 }
 
-.sydney-testimonials h1 {
+.sydney-testimonials h2 {
   font-size: 48px;
 
   font-weight: 900;
@@ -2124,7 +2090,7 @@ export default {
   border-radius: 50px;
 }
 
-.sydney-faq h1 {
+.sydney-faq h2 {
   text-align: center;
 
   font-size: 48px;
@@ -2183,7 +2149,7 @@ export default {
   color: black;
 }
 
-.location h1 {
+.location h2 {
   text-align: center;
 
   font-size: 48px;
@@ -2279,7 +2245,7 @@ export default {
   text-align: center;
 }
 
-.sydney-final-cta h1 {
+.sydney-final-cta h2 {
   font-size: 48px;
 
   font-weight: 900;
@@ -2613,7 +2579,7 @@ export default {
       80px 30px;
   }
 
-  .process h1 {
+  .process h2 {
     font-size: 32px;
   }
 
@@ -2629,7 +2595,7 @@ export default {
       60px 30px;
   }
 
-  .samples > h1 {
+  .samples > h2 {
     font-size: 32px;
   }
 
@@ -2638,7 +2604,7 @@ export default {
       80px 20px;
   }
 
-  .prices > h1 {
+  .prices > h2 {
     font-size: 32px;
   }
 
@@ -2652,11 +2618,11 @@ export default {
       60px 30px;
   }
 
-  .sydney-options h1,
-  .sydney-faq h1,
-  .sydney-final-cta h1,
-  .sydney-testimonials h1,
-  .location h1 {
+  .sydney-options h2,
+  .sydney-faq h2,
+  .sydney-final-cta h2,
+  .sydney-testimonials h2,
+  .location h2 {
     font-size: 32px;
   }
 
@@ -2742,7 +2708,7 @@ export default {
     min-height: 320px;
   }
 
-  .process h1 {
+  .process h2 {
     font-size: 26px;
   }
 
@@ -2758,7 +2724,7 @@ export default {
       50px 20px;
   }
 
-  .samples > h1 {
+  .samples > h2 {
     font-size: 28px;
   }
 
@@ -2808,7 +2774,7 @@ export default {
       40px 20px 0;
   }
 
-  .location h1 {
+  .location h2 {
     font-size: 32px;
   }
 
