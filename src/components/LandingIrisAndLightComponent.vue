@@ -18,6 +18,7 @@
   Prices
 </a><a class="navlink" @click.prevent="scrollToSection('contact')">Contact Us</a>
 <a class="navlink" @click.prevent="scrollToSection('location')">Find Us</a>
+<a class="navlink1" href="https://shop.irisandlight.ai" target="blank">Shop Prints & Frames</a>
 <a class="booklink" @click.prevent="scrollToSection('booking')">Book a Session</a>        
     </div>
 </nav>
@@ -951,6 +952,8 @@ options: [
   position: relative;
 }
 
+
+
 .navlink::after {
   content: '';
   position: absolute;
@@ -966,6 +969,23 @@ options: [
 
 .navlink:hover::after {
   transform: scaleX(1);
+}
+
+.navlink1 {
+    text-decoration: none;
+    color: white;
+    margin-right: 15px;
+    font-size: 18px;
+    transition: all 0.5s ease;
+  position: relative;
+      border-radius: 100px;
+  border: 1px solid white;
+      padding: 10px 25px;
+
+}
+
+.navlink1:hover {
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 .booklink {
@@ -1843,6 +1863,7 @@ input[type="time"] {
 }
 
 .navlink,
+.navlink1,
 .booklink,
 .herobtn,
 .location-btn,
@@ -1898,12 +1919,13 @@ input[type="time"] {
   }
 
   .navlink,
+  .navlink1,
   .booklink {
     margin-right: 0;
   }
 
   .booklink {
-    margin-top: 10px;
+    margin-top: 0px;
   }
 
   .hero h1{
