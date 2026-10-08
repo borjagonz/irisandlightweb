@@ -155,14 +155,31 @@
   <h3>{{ item.title }}</h3>
 
 <div class="price-options">
-  <div
-    v-for="option in item.options"
-    :key="option.size"
-    class="price-option"
-  >
-    <span>{{ option.size }}</span>
-    <span>{{ option.price }}</span>
-  </div>
+
+  <!-- Wall Art: mostrar solo el precio inicial -->
+  <template v-if="category.title === 'Wall Art - Acrylic' || category.title === 'Wall Art Direct Print Aluminium Dibond'">
+
+    <div class="price-option">
+      <span>From</span>
+      <span>{{ item.options[0].price }}</span>
+    </div>
+
+  </template>
+
+  <!-- Resto de categorías: mostrar todas las opciones -->
+  <template v-else>
+
+    <div
+      v-for="option in item.options"
+      :key="option.size"
+      class="price-option"
+    >
+      <span>{{ option.size }}</span>
+      <span>{{ option.price }}</span>
+    </div>
+
+  </template>
+
 </div>
         </div>
 
@@ -360,11 +377,13 @@ import prices7 from "../assets/prices7.jpg"
 import prices8 from "../assets/prices8.jpg"
 import prices9 from "../assets/prices9.jpg"
 import prices10 from "../assets/prices10.jpg"
+import prices10B from "../assets/prices10B.jpg"
 import prices11 from "../assets/prices11.jpg"
 import prices12 from "../assets/prices12.jpg"
 import prices13 from "../assets/prices13.jpg"
 import prices14 from "../assets/prices14.jpg"
 import prices15 from "../assets/prices15.jpg"
+import prices16 from "../assets/prices15B.jpg"
 
 import BookSessionBtn from "./BookSessionBtn.vue"
 
@@ -552,6 +571,13 @@ options: [
       { size: "200 × 50 cm", price: "$2000" }
     ]
   },
+  {
+  image: prices10B,
+  title: "5 Eyes Rectangular Acrylic Frames",
+  options: [
+    { size: "", price: "$1300" }
+  ]
+},
 
   {
     image: prices11,
@@ -620,7 +646,14 @@ options: [
       { size: "160 × 40 cm", price: "$1700" },
       { size: "200 × 50 cm", price: "$2000" }
     ]
-  }
+  },
+    {
+  image: prices16,
+  title: "5 Eyes Rectangular Dibond",
+  options: [
+    { size: "", price: "$1300" }
+  ]
+},
 ]
 
 }
