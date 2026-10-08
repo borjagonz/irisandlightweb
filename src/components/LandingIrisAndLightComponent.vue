@@ -527,7 +527,7 @@ items: [
 image: prices7,
 title: "Square Acrylic",
 options: [
-{ size: "30 × 30 cm", price: "$580" },
+{ size: "30 × 30 cm", price: "$460" },
 { size: "40 × 40 cm", price: "$680" },
 { size: "50 × 50 cm", price: "$780" },
 { size: "60 × 60 cm", price: "$880" },
@@ -542,7 +542,7 @@ options: [
     image: prices8,
     title: "2 Eyes Rectangular Acrylic Frames",
     options: [
-      { size: "40 × 20 cm", price: "$600" },
+      { size: "40 × 20 cm", price: "$480" },
       { size: "60 × 30 cm", price: "$750" },
       { size: "80 × 40 cm", price: "$950" },
       { size: "100 × 50 cm", price: "$1100" },
@@ -554,7 +554,7 @@ options: [
     image: prices9,
     title: "3 Eyes Rectangular Acrylic Frames",
     options: [
-      { size: "60 × 20 cm", price: "$700" },
+      { size: "60 × 20 cm", price: "$685" },
       { size: "90 × 30 cm", price: "$950" },
       { size: "120 × 40 cm", price: "$1500" },
       { size: "150 × 50 cm", price: "$1750" }
@@ -565,7 +565,7 @@ options: [
     image: prices10,
     title: "4 Eyes Rectangular Acrylic Frames",
     options: [
-      { size: "80 × 20 cm", price: "$1100" },
+      { size: "80 × 20 cm", price: "$865" },
       { size: "120 × 30 cm", price: "$1500" },
       { size: "160 × 40 cm", price: "$1750" },
       { size: "200 × 50 cm", price: "$2000" }
@@ -575,7 +575,7 @@ options: [
   image: prices10B,
   title: "5 Eyes Rectangular Acrylic Frames",
   options: [
-    { size: "", price: "$1300" }
+    { size: "", price: "$955" }
   ]
 },
 
@@ -583,7 +583,7 @@ options: [
     image: prices11,
     title: "Circular Acrylic Frames",
     options: [
-      { size: "50 × 50 cm", price: "$840" },
+      { size: "50 × 50 cm", price: "$500" },
       { size: "60 × 60 cm", price: "$990" },
       { size: "70 × 70 cm", price: "$1200" },
       { size: "80 × 80 cm", price: "$1350" },
@@ -604,7 +604,7 @@ items: [
 image: prices12,
 title: "Square Dibond",
 options: [
-{ size: "40 × 40 cm", price: "$550" },
+{ size: "40 × 40 cm", price: "$440" },
 { size: "50 × 50 cm", price: "$620" },
 { size: "60 × 60 cm", price: "$690" },
 { size: "70 × 70 cm", price: "$760" },
@@ -618,7 +618,7 @@ options: [
     image: prices13,
     title: "2 Eyes Rectangular Dibond",
     options: [
-      { size: "40 × 20 cm", price: "$420" },
+      { size: "40 × 20 cm", price: "$395" },
       { size: "60 × 30 cm", price: "$520" },
       { size: "80 × 40 cm", price: "$620" },
       { size: "100 × 50 cm", price: "$720" },
@@ -630,7 +630,7 @@ options: [
     image: prices14,
     title: "3 Eyes Rectangular Dibond",
     options: [
-      { size: "60 × 20 cm", price: "$700" },
+      { size: "60 × 20 cm", price: "$545" },
       { size: "90 × 30 cm", price: "$950" },
       { size: "120 × 40 cm", price: "$1500" },
       { size: "150 × 50 cm", price: "$1750" }
@@ -641,7 +641,7 @@ options: [
     image: prices15,
     title: "4 Eyes Rectangular Dibond",
     options: [
-      { size: "80 × 20 cm", price: "$900" },
+      { size: "80 × 20 cm", price: "$730" },
       { size: "120 × 30 cm", price: "$1300" },
       { size: "160 × 40 cm", price: "$1700" },
       { size: "200 × 50 cm", price: "$2000" }
@@ -651,7 +651,7 @@ options: [
   image: prices16,
   title: "5 Eyes Rectangular Dibond",
   options: [
-    { size: "", price: "$1300" }
+    { size: "", price: "$800" }
   ]
 },
 ]
